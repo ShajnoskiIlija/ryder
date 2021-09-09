@@ -2,7 +2,7 @@
    <div class="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full bg-indigo-50 lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
   <div class="max-w-xl sm:mx-auto lg:max-w-2xl">
     <div class="flex flex-col mb-16 sm:text-center sm:mb-0">
-      <%= link_to  "/", class:"mb-6 sm:mx-auto" do %>
+      <%= link_to  root_path , class:"mb-6 sm:mx-auto" do %>
         <div class="flex items-center justify-center w-12 h-12 rounded-full bg-indigo-50 ">
            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
             <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
@@ -103,7 +103,7 @@
                 <span class="mt-2">Radozda, Struga, MKD</span>
             <% end %>
 
-            <%link_to "#", class:"flex flex-col items-center px-4 py-3 text-gray-50 rounded-md dark:text-gray-200 hover:bg-blue-200 dark:hover:bg-blue-500" do %>
+            <%= link_to "#", class:"flex flex-col items-center px-4 py-3 text-gray-50 rounded-md dark:text-gray-200 hover:bg-blue-200 dark:hover:bg-blue-500" do %>
                 <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                     <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
                 </svg>
@@ -111,7 +111,7 @@
                 <span class="mt-2">+2499999666600</span>
             <% end %>
 
-            <%link_to "#", class:"flex flex-col items-center px-4 py-3 text-gray-50 rounded-md dark:text-gray-200 hover:bg-blue-200 dark:hover:bg-blue-500" do %>
+            <%= link_to "#", class:"flex flex-col items-center px-4 py-3 text-gray-50 rounded-md dark:text-gray-200 hover:bg-blue-200 dark:hover:bg-blue-500" do %>
                 <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                     <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
                     <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
@@ -155,7 +155,7 @@
                 <div class="w-full -mx-6 lg:w-2/5">
                     <div class="px-6">
                         <div>
-                            <%= link_to "RYDER", "#", class:"text-xl font-bold text-green-800 dark:text-white hover:text-blue-700 dark:hover:text-gray-300"%>
+                            <%= link_to "RYDER", root_path, class:"text-xl font-bold text-green-800 dark:text-white hover:text-blue-700 dark:hover:text-gray-300"%>
                         </div>
 
                         <p class="max-w-md mt-2 text-gray-50 dark:text-gray-400">RYDE and Share With The Fastest Growing Sharing Platform</p>
