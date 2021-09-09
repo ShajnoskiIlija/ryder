@@ -1,0 +1,214 @@
+
+   <div class="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full bg-indigo-50 lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
+  <div class="max-w-xl sm:mx-auto lg:max-w-2xl">
+    <div class="flex flex-col mb-16 sm:text-center sm:mb-0">
+      <%= link_to  "/", class:"mb-6 sm:mx-auto" do %>
+        <div class="flex items-center justify-center w-12 h-12 rounded-full bg-indigo-50 ">
+           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+            <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
+              </svg>
+
+
+        </div>
+      <% end %>
+      <div class="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
+        <h2 class="max-w-lg mb-6 font-sans text-3xl font-bold leading-none tracking-tight text-green-700 sm:text-4xl md:mx-auto">
+          <span class="relative inline-block">
+            <svg viewBox="0 0 52 24" fill="currentColor" class="absolute top-0 left-0 z-0 hidden w-32 -mt-8 -ml-20 text-blue-gray-100 lg:w-32 lg:-ml-28 lg:-mt-10 sm:block">
+              <defs>
+                <pattern id="e77df901-b9d7-4b9b-822e-16b2d410795b" x="0" y="0" width=".135" height=".30">
+                  <circle cx="1" cy="1" r=".7"></circle>
+                </pattern>
+              </defs>
+              <rect fill="url(#e77df901-b9d7-4b9b-822e-16b2d410795b)" width="52" height="24"></rect>
+            </svg>
+
+          </span>
+          RYDER
+        </h2>
+        <p class="text-base text-gray-700 md:text-lg">
+          Join and Share, the fastest growing online sharing platform
+        </p>
+      </div>
+      <div>
+        <%= link_to "Get Started","/",class:"inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-gray-700 transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none" %>
+      </div>
+    </div>
+  </div>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+<div class="flex items-center justify-center  bg-blue-200 w-screen min-h-screen p-10">
+	<div class="grid xl:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-2 max-w-6xl">
+		<div class="flex flex-col bg-yellow-300 rounded-lg p-4 m-2">
+			<div class="h-40 bg-gray-400 rounded-lg">
+      <%= image_tag ("cards/bike.jpg")%>
+
+      </div>
+			<div class="flex flex-col items-start mt-4">
+				<h4 class="text-xl font-semibold">BICYCLE</h4>
+				<p class="text-sm">Here you can find bicylces for your need.</p>
+				<%= link_to "Click Here", "" ,class:"p-2 leading-none rounded font-medium mt-3 bg-gray-400 text-xs uppercase" %>
+			</div>
+		</div>
+		<div class="flex flex-col bg-blue-700 rounded-lg p-4 m-2">
+			<div  class="h-40 bg-gray-400 rounded-lg">
+       <%= image_tag ("cards/elektrik.jpg")%>
+
+      </div>
+			<div class="flex flex-col items-start mt-4">
+				<h4 class="text-xl font-semibold">ELECTRIC SCOOTER</h4>
+				<p class="text-sm">Find available electric scooter</p>
+			<%= link_to "Click Here", "" ,class:"p-2 leading-none rounded font-medium mt-3 bg-gray-400 text-xs uppercase" %>
+			</div>
+		</div>
+		<div class="flex flex-col bg-purple-200 rounded-lg p-4 m-2">
+			<div class="h-40 bg-gray-400 rounded-lg">
+      <%= image_tag ("cards/winter.jpg")%>
+
+      </div>
+			<div class="flex flex-col items-start mt-4">
+				<h4 class="text-xl font-semibold">WINTER EQUIPMENT</h4>
+				<p class="text-sm">Lets go to the mountains.</p>
+			<%=link_to "Click Here", "" ,class:"p-2 leading-none rounded font-medium mt-3 bg-gray-400 text-xs uppercase" %>
+			</div>
+		</div>
+		<div class="flex flex-col bg-red-200 rounded-lg p-4 m-2">
+			<div class="h-40 bg-gray-400 rounded-lg">
+      <%= image_tag ("cards/surfer2.jpg")%>
+
+      </div>
+			<div class="flex flex-col items-start mt-4">
+				<h4 class="text-xl font-semibold">SUMMER EQUIPMENT</h4>
+				<p class="text-sm">Have fun in summer hot days.</p>
+			<%=link_to  "Click Here", "" ,class:"p-2 leading-none rounded font-medium mt-3 bg-gray-400 text-xs uppercase" %>
+			</div>
+		</div>
+	</div>
+
+
+
+</div>
+<hr class="h-5px my-6 bg-green-500 border-none dark:bg-gray-700">
+
+    <section class="w-full max-w-2xl px-6 py-4 mx-auto bg-blue-200 rounded-md shadow-md dark:bg-gray-800">
+        <h2 class="text-3xl font-semibold text-center text-gray-800 dark:text-white">Get in touch</h2>
+
+
+        <div class="grid grid-cols-1 gap-6 mt-6 bg-indigo-300 sm:grid-cols-2 md:grid-cols-3">
+            <%= link_to "#", class:"flex flex-col items-center px-4 py-3 text-gray-700 rounded-md dark:text-gray-200 hover:bg-blue-200 dark:hover:bg-blue-500" do %>
+                <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
+                </svg>
+
+                <span class="mt-2">Radozda, Struga, MKD</span>
+            <% end %>
+
+            <%link_to "#", class:"flex flex-col items-center px-4 py-3 text-gray-50 rounded-md dark:text-gray-200 hover:bg-blue-200 dark:hover:bg-blue-500" do %>
+                <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                    <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+                </svg>
+
+                <span class="mt-2">+2499999666600</span>
+            <% end %>
+
+            <%link_to "#", class:"flex flex-col items-center px-4 py-3 text-gray-50 rounded-md dark:text-gray-200 hover:bg-blue-200 dark:hover:bg-blue-500" do %>
+                <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                    <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                    <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+                </svg>
+
+                <span class="mt-2">example@example.com</span>
+            <% end %>
+        </div>
+
+        <div class="mt-6 ">
+            <div class="items-center -mx-2 md:flex">
+                <div class="w-full mx-2">
+
+                    <label class="block mb-2 text-sm font-medium text-gray-600 dark:text-gray-200">Name</label>
+
+                    <input class="block w-full px-4 py-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring" type="text">
+                </div>
+
+                <div class="w-full mx-2 mt-4 md:mt-0">
+                    <label class="block mb-2 text-sm font-medium text-gray-600 dark:text-gray-200">E-mail</label>
+
+                    <input class="block w-full px-4 py-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring" type="email">
+                </div>
+            </div>
+
+            <div class="w-full mt-4">
+                <label class="block mb-2 text-sm font-medium text-gray-600 dark:text-gray-200">Message</label>
+
+                <textarea class="block w-full h-40 px-4 py-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"></textarea>
+            </div>
+
+            <div class="flex justify-center mt-6">
+                <button class="px-4 py-2 text-white transition-colors duration-200 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600">Send Message</button>
+            </div>
+        </div>
+    </section>
+    <hr class="h-5px my-6 bg-green-500 border-none dark:bg-gray-700">
+    <footer class="bg-gray-800 dark:bg-gray-800">
+        <div class="container px-6 py-4 mx-auto">
+            <div class="lg:flex">
+                <div class="w-full -mx-6 lg:w-2/5">
+                    <div class="px-6">
+                        <div>
+                            <%= link_to "RYDER", "#", class:"text-xl font-bold text-green-800 dark:text-white hover:text-blue-700 dark:hover:text-gray-300"%>
+                        </div>
+
+                        <p class="max-w-md mt-2 text-gray-50 dark:text-gray-400">RYDE and Share With The Fastest Growing Sharing Platform</p>
+
+                        <div class="flex mt-4 -mx-2">
+                            <% link_to "#", class:"mx-2 text-gray-50 dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-400", aria: { label: "Linkden"} do %>
+                                <svg class="w-4 h-4 fill-current" viewBox="0 0 512 512">
+                                    <path d="M444.17,32H70.28C49.85,32,32,46.7,32,66.89V441.61C32,461.91,49.85,480,70.28,480H444.06C464.6,480,480,461.79,480,441.61V66.89C480.12,46.7,464.6,32,444.17,32ZM170.87,405.43H106.69V205.88h64.18ZM141,175.54h-.46c-20.54,0-33.84-15.29-33.84-34.43,0-19.49,13.65-34.42,34.65-34.42s33.85,14.82,34.31,34.42C175.65,160.25,162.35,175.54,141,175.54ZM405.43,405.43H341.25V296.32c0-26.14-9.34-44-32.56-44-17.74,0-28.24,12-32.91,23.69-1.75,4.2-2.22,9.92-2.22,15.76V405.43H209.38V205.88h64.18v27.77c9.34-13.3,23.93-32.44,57.88-32.44,42.13,0,74,27.77,74,87.64Z"/>
+                                </svg>
+                            <% end %>
+
+                            <%= link_to "#", class:"mx-2 text-gray-50 dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-400", aria: { label:"Facebook" } do %>
+                                <svg class="w-4 h-4 fill-current" viewBox="0 0 512 512">
+                                    <path d="M455.27,32H56.73A24.74,24.74,0,0,0,32,56.73V455.27A24.74,24.74,0,0,0,56.73,480H256V304H202.45V240H256V189c0-57.86,40.13-89.36,91.82-89.36,24.73,0,51.33,1.86,57.51,2.68v60.43H364.15c-28.12,0-33.48,13.3-33.48,32.9V240h67l-8.75,64H330.67V480h124.6A24.74,24.74,0,0,0,480,455.27V56.73A24.74,24.74,0,0,0,455.27,32Z"/>
+                                </svg>
+                               <% end %>
+
+                               <%= link_to "#", class:"mx-2 text-gray-50 dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-400", aria: { label: "Twitter"} do %>
+                                <svg class="w-4 h-4 fill-current" viewBox="0 0 512 512">
+                                    <path d="M496,109.5a201.8,201.8,0,0,1-56.55,15.3,97.51,97.51,0,0,0,43.33-53.6,197.74,197.74,0,0,1-62.56,23.5A99.14,99.14,0,0,0,348.31,64c-54.42,0-98.46,43.4-98.46,96.9a93.21,93.21,0,0,0,2.54,22.1,280.7,280.7,0,0,1-203-101.3A95.69,95.69,0,0,0,36,130.4C36,164,53.53,193.7,80,211.1A97.5,97.5,0,0,1,35.22,199v1.2c0,47,34,86.1,79,95a100.76,100.76,0,0,1-25.94,3.4,94.38,94.38,0,0,1-18.51-1.8c12.51,38.5,48.92,66.5,92.05,67.3A199.59,199.59,0,0,1,39.5,405.6,203,203,0,0,1,16,404.2,278.68,278.68,0,0,0,166.74,448c181.36,0,280.44-147.7,280.44-275.8,0-4.2-.11-8.4-.31-12.5A198.48,198.48,0,0,0,496,109.5Z"/>
+                                </svg>
+                              <% end %>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-6 lg:mt-0 lg:flex-1">
+                    <div class="grid grid-cols-2 gap-6 sm:grid-cols-3 md:grid-cols-4">
+                        <div>
+                            <h3 class="text-gray-50 uppercase dark:text-white">About</h3>
+                            <%= link_to "About Us", "#", class:"block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline" %>
+                        </div>
+                        <div>
+                            <h3 class="text-gray-50 uppercase dark:text-white">FIND</h3>
+                            <%= link_to "Bicycles", "#", class:"block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline"%>
+                            <%= link_to "Scooters", "#", class:"block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline"%>
+                            <%= link_to "Summer Equipment", "#", class:"block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline"%>
+                            <%= link_to "Winter Equipment", "#", class:"block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline"%>
+                        </div>
+
+                        <div>
+                            <h3 class="text-gray-50 uppercase dark:text-white">Contact</h3>
+                            <span class="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline">+1 526 654 8965</span>
+                            <span class="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline">rydewithus@gmail.com</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="h-px my-6 bg-green-500 border-none dark:bg-gray-700">
+
+            <div>
+                <p class="text-center text-gray-50 dark:text-white">© Brand 2021 - All rights reserved</p>
+            </div>
+        </div>
+    </footer>
