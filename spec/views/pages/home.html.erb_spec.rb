@@ -12,6 +12,6 @@ RSpec.describe 'pages/home.html.erb', type: :view do
   it 'renders contact info' do
     render
 
-    expect(rendered).to include('rydewuthus@gmail.com', 'Send Message', '+2499999666600', 'Radozda, Struga, MKD')
+    expect(rendered).to include('rydewithus@gmail.com', 'Send Message', '+2499999666600', 'Radozda, Struga, MKD')
   end
 end

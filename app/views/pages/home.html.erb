@@ -69,7 +69,7 @@
 			<div class="flex flex-col items-start mt-4">
 				<h4 class="text-xl font-semibold">WINTER EQUIPMENT</h4>
 				<p class="text-sm">Lets go to the mountains.</p>
-			<%=link_to "Click Here", "" ,class:"p-2 leading-none rounded font-medium mt-3 bg-gray-400 text-xs uppercase" %>
+			<%= link_to "Click Here", "" ,class:"p-2 leading-none rounded font-medium mt-3 bg-gray-400 text-xs uppercase" %>
 			</div>
 		</div>
 		<div class="flex flex-col bg-red-200 rounded-lg p-4 m-2">
@@ -100,7 +100,7 @@
                     <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
                 </svg>
 
-                <span class="mt-2">Radozda, Struga, MKD</span>
+                <%= link_to "Radozda, Struga, MKD", "https://www.google.com/maps", class:"mt-2"%>
             <% end %>
 
             <%= link_to "#", class:"flex flex-col items-center px-4 py-3 text-gray-700 rounded-md dark:text-gray-200 hover:bg-blue-200 dark:hover:bg-blue-500" do %>
@@ -108,7 +108,7 @@
                     <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
                 </svg>
 
-                <span class="mt-2">+2499999666600</span>
+                <%= link_to "+2499999666600", "+2499999666600", class:"mt-2" %>
             <% end %>
 
             <%= link_to "#", class:"flex flex-col items-center px-4 py-3 text-gray-700 rounded-md dark:text-gray-200 hover:bg-blue-200 dark:hover:bg-blue-500" do %>
@@ -117,7 +117,7 @@
                     <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
                 </svg>
 
-                <span class="mt-2">rydewuthus@gmail.com</span>
+                <%= mail_to "rydewithus@gmail.com", "rydewithus@gmail.com", class:"mt-2"%>
             <% end %>
         </div>
 
@@ -198,8 +198,8 @@
 
                         <div>
                             <h3 class="text-gray-50 uppercase dark:text-white">Contact</h3>
-                            <span class="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline">+1 526 654 8965</span>
-                            <span class="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline">rydewithus@gmail.com</span>
+                            <%= link_to "+1 526 654 8965", "+1 526 654 8965", class:"block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline"%>
+                            <%= mail_to "rydewithus@gmail.com", "rydewithus@gmail.com", class:"block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline" %>
                         </div>
                     </div>
                 </div>
