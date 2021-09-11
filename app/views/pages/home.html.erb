@@ -123,22 +123,21 @@
         <div class="mt-6 ">
             <div class="items-center -mx-2 md:flex">
                 <div class="w-full mx-2">
-                 <%= form_with url: "create_contact", scope: :contact do |f|%>
-                     <%= f.label :full_name, class: "block mb-2 text-sm font-medium text-gray-600 dark:text-gray-200"%>
-                    <input class="block w-full px-4 py-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring" type="text">
+                 <%= form_with model: @contact, url: "create_contact" do |f|%>
+                    <%= f.label :full_name, class: "block mb-2 text-sm font-medium text-gray-600 dark:text-gray-200"%>
+                    <%= f.text_field :full_name, class:"block w-full px-4 py-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring" %>
                 </div>
 
                 <div class="w-full mx-2 mt-4 md:mt-0">
                     <%= f.label :email, class:"block mb-2 text-sm font-medium text-gray-600 dark:text-gray-200"%>
-
-                    <input class="block w-full px-4 py-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring" type="email">
+                    <%= f.text_field :email, class:"block w-full px-4 py-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring" %>
                 </div>
             </div>
 
             <div class="w-full mt-4">
                 <%= f.label :message, class:"block mb-2 text-sm font-medium text-gray-600 dark:text-gray-200"%>
 
-                <textarea class="block w-full h-40 px-4 py-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"></textarea>
+                <%= f.text_area :message, class:"block w-full h-40 px-4 py-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"%>
             </div>
 
             <div class="flex justify-center mt-6">
