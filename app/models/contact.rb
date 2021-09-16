@@ -2,5 +2,5 @@
 
 class Contact < ApplicationRecord
   validates :full_name, :email, presence: true
-  validates :message, length: { maximum: 99 }, presence: true
+  validates :message, length: { maximum: 600 }, presence: true
 end
