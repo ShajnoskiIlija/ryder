@@ -1,9 +1,8 @@
 # frozen_string_literal: true
 
+require 'factory_bot_rails'
+include FactoryBot::Syntax::Methods
+
 5.times do
-    contact = Contact.create!(
-      full_name: Faker::Name.first_name,
-      email: Faker::Internet.email,
-      message: Faker::Lorem.paragraphs
-    )
+    create(:contact)
 end
