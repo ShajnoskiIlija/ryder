@@ -2,6 +2,7 @@
 
 Rails.application.routes.draw do
 
+  devise_for :users
   get "/home", to: "pages#home"
   post "/create_contact", to: 'pages#create_contact'
 
