@@ -17,4 +17,8 @@ create(:user, email: 'user@test.com', first_name: 'Ilija', last_name: 'Shajnoski
      create(:user)
 end
 
+puts 'Creating items...'
+5.times do
+    create(:rent_item)
+
 puts 'Seeding completed!'
