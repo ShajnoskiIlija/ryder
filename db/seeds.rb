@@ -20,5 +20,6 @@ end
 puts 'Creating items...'
 5.times do
     create(:rent_item)
+end
 
 puts 'Seeding completed!'
