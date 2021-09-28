@@ -14,12 +14,14 @@ puts 'Creating users...'
 create(:user, email: 'user@test.com', first_name: 'Ilija', last_name: 'Shajnoski')
 
 10.times do
-     create(:user)
+    user = create(:user)
+
+    rand(2..5).times { create(:rent_item, user: user) }
 end
 
-puts 'Creating items...'
-5.times do
-    create(:rent_item)
-end
+# puts 'Creating items...'
+# 5.times do
+#     create(:rent_item)
+# end
 
 puts 'Seeding completed!'
