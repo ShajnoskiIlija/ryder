@@ -2,6 +2,7 @@
 
 FactoryBot.define do
   factory :rent_item do
+    association :user, factory: :user
     location { Faker::Address.street_name }
     condition { %w[used new].sample }
     for_age { %w[children female all proffesionals].sample }

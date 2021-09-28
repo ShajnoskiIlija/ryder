@@ -13,4 +13,8 @@ RSpec.describe User, type: :model do
     it { expect(user).to validate_presence_of(:address) }
     it { expect(user).to validate_presence_of(:phone_number) }
   end
+
+  describe 'post associations' do
+    it { is_expected.to have_many(:rent_items) }
+  end
 end
