@@ -2,7 +2,7 @@ language: ruby
 before_install:
   - gem install --no-document rubocop
 rvm:
-  - 3.0.2
+-  .ruby-version
 before_script:
   - bundle exec rake db:create --all
   - bundle exec rake db:migrate
