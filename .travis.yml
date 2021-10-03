@@ -2,6 +2,10 @@ language: ruby
 dist: focal
 before_install:
   - gem install --no-document rubocop
+  - sudo sed -i -e '/local.*peer/s/postgres/all/' -e 's/peer\|md5/trust/g' /etc/postgresql/*/main/pg_hba.conf
+  - sudo service postgresql restart
+  - sleep 1
+  - postgres --version
 rvm:
   - 3.0.2
 before_script:
