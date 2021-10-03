@@ -9,6 +9,11 @@ before_script:
   - bundle exec rake db:migrate
 script:
   - bundle exec rake ci:tests
+addons:
+  postgresql: '12'
+  apt:
+      packages:
+        - postgresql-12
 services:
   - postgresql
 notifications:
