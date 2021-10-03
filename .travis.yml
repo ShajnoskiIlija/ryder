@@ -1,4 +1,5 @@
 language: ruby
+dist: focal
 before_install:
   - gem install --no-document rubocop
 rvm:
