@@ -5,6 +5,8 @@ class PagesController < ApplicationController
     @contact = Contact.new
   end
 
+  def about; end
+
   def create_contact
     @contact = Contact.new(contact_params)
     if @contact.save

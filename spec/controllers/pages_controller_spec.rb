@@ -10,6 +10,13 @@ RSpec.describe PagesController, type: :controller do
     end
   end
 
+  describe 'GET about' do
+    it 'has a success status code' do
+      get :about
+      expect(response).to have_http_status(:success)
+    end
+  end
+
   describe 'POST create_contact' do
     context 'with valid attributes' do
       it 'creates new contact' do
