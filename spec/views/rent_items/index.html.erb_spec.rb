@@ -3,5 +3,9 @@
 require 'rails_helper'
 
 RSpec.describe 'rent_items/index.html.erb', type: :view do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it 'displays titles' do
+    render
+
+    expect(rendered).to include('Here you can find all items for rent')
+  end
 end
