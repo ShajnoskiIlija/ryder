@@ -2,6 +2,7 @@
 
 Rails.application.routes.draw do
 
+  get 'rent_items/index'
   devise_for :users
   get "/home", to: "pages#home"
   get "/about", to: "pages#about"
