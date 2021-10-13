@@ -47,7 +47,7 @@
 			<div class="flex flex-col items-start mt-4">
 				<h4 class="text-xl font-semibold">BICYCLE</h4>
 				<p class="text-sm">Here you can find bicylces for your need.</p>
-				<%= link_to "Click Here", "" ,class:"p-2 leading-none rounded font-medium mt-3 bg-gray-400 text-xs uppercase" %>
+				<%= link_to "Click Here", rent_items_path(rent_type: 'bicycle') ,class:"p-2 leading-none rounded font-medium mt-3 bg-gray-400 text-xs uppercase" %>
 			</div>
 		</div>
 		<div class="flex flex-col bg-blue-700 rounded-lg p-4 m-2">
@@ -58,7 +58,7 @@
 			<div class="flex flex-col items-start mt-4">
 				<h4 class="text-xl font-semibold">ELECTRIC SCOOTER</h4>
 				<p class="text-sm">Find available electric scooter</p>
-			<%= link_to "Click Here", "" ,class:"p-2 leading-none rounded font-medium mt-3 bg-gray-400 text-xs uppercase" %>
+			<%= link_to "Click Here", rent_items_path(rent_type: 'electric scooter') ,class:"p-2 leading-none rounded font-medium mt-3 bg-gray-400 text-xs uppercase" %>
 			</div>
 		</div>
 		<div class="flex flex-col bg-purple-200 rounded-lg p-4 m-2">
@@ -69,7 +69,7 @@
 			<div class="flex flex-col items-start mt-4">
 				<h4 class="text-xl font-semibold">WINTER EQUIPMENT</h4>
 				<p class="text-sm">Lets go to the mountains.</p>
-			<%= link_to "Click Here", "" ,class:"p-2 leading-none rounded font-medium mt-3 bg-gray-400 text-xs uppercase" %>
+			<%= link_to "Click Here", rent_items_path(rent_type: 'winter equipment') ,class:"p-2 leading-none rounded font-medium mt-3 bg-gray-400 text-xs uppercase" %>
 			</div>
 		</div>
 		<div class="flex flex-col bg-red-200 rounded-lg p-4 m-2">
@@ -80,7 +80,7 @@
 			<div class="flex flex-col items-start mt-4">
 				<h4 class="text-xl font-semibold">SUMMER EQUIPMENT</h4>
 				<p class="text-sm">Have fun in summer hot days.</p>
-			<%=link_to  "Click Here", "" ,class:"p-2 leading-none rounded font-medium mt-3 bg-gray-400 text-xs uppercase" %>
+			<%=link_to  "Click Here", rent_items_path(rent_type: 'summer equipment'),class:"p-2 leading-none rounded font-medium mt-3 bg-gray-400 text-xs uppercase" %>
 			</div>
 		</div>
 	</div>
@@ -187,10 +187,10 @@
                         </div>
                         <div>
                             <h3 class="text-gray-50 uppercase dark:text-white">FIND</h3>
-                            <%= link_to "Bicycles", "#", class:"block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline"%>
-                            <%= link_to "Scooters", "#", class:"block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline"%>
-                            <%= link_to "Summer Equipment", "#", class:"block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline"%>
-                            <%= link_to "Winter Equipment", "#", class:"block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline"%>
+                            <%= link_to "Bicycles", rent_items_path(rent_type: 'bicycle'), class:"block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline"%>
+                            <%= link_to "Scooters", rent_items_path(rent_type: 'electric scooter'), class:"block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline"%>
+                            <%= link_to "Summer Equipment", rent_items_path(rent_type: 'summer equipment'), class:"block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline"%>
+                            <%= link_to "Winter Equipment", rent_items_path(rent_type: 'winter equipment'), class:"block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline"%>
                         </div>
 
                         <div>

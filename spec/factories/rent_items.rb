@@ -6,6 +6,6 @@ FactoryBot.define do
     location { Faker::Address.street_name }
     condition { %w[used new].sample }
     for_age { %w[children female all proffesionals].sample }
-    item_type { ['bike', 'electric scooter', 'winter equipment', 'summer equipment'].sample }
+    item_type { ['bicycle', 'electric scooter', 'winter equipment', 'summer equipment'].sample }
   end
 end
