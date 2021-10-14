@@ -2,21 +2,20 @@
 
 require 'rails_helper'
 
-describe 'rent_items/index.html.erb', type: :view do
-  let(:rent_type) { create(:rent_type) }
+RSpec.describe 'rent_items/index.html.erb', type: :view do
+  let(:item) { create(:rent_item) }
 
   before do
-    assign(:rent_type, [item])
-    it 'displays titles' do
-      render
-      expect(rendered).to include("You're looking for:", "You didn't add category!", 'Choose one category please:', 'Condition:', 'For:', 'Type:')
-    end
+    assign(:rent_items, [item])
+  end
 
-    context 'with dynamic content' do
-      it 'displays a cards' do
-        render
-        expect(rendered).to include(item.condition, item.for_age, item.type, item.location)
-      end
-    end
+  it 'displays titles' do
+    render
+    expect(rendered).to include('Condition:', 'For:', 'Type:', "You're looking for:")
+  end
+
+  it 'displays a cards' do
+    render
+    expect(rendered).to include(item.condition, item.for_age, item.item_type, item.location)
   end
 end
