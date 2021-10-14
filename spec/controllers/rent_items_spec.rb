@@ -5,7 +5,7 @@ require 'rails_helper'
 RSpec.describe 'RentItems', type: :request do
   describe 'GET /index' do
     it 'returns http success' do
-      get '/rent_items/index'
+      get '/rent_items'
       expect(response).to have_http_status(:success)
     end
   end
