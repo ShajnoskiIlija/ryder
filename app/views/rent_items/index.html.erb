@@ -1,2 +1,46 @@
-<h1>Here you can find all items for rent</h1>
-<p>... </p>
+<% if @rent_items.blank? do %>
+    <h1>You didn't add category!</h1>
+    <p>Choose one category please:
+        <%= link_to 'Summer Equipment', rent_items_path(rent_type: 'summer equipment') %> |
+        <%= link_to 'Winter Equipment', rent_items_path(rent_type: 'winter equipment') %> |
+        <%= link_to 'Bicycle', rent_items_path(rent_type: 'bicycle') %> |
+        <%= link_to 'Electric Scooter', rent_items_path(rent_type: 'electric scooter') %>
+    </p>
+    <% end %>
+<% else %>
+<section class=" bg-yellow-100 text-gray-600 body-font">
+  <div class=" container px-2 py-8 mx-auto">
+    <div class="grid grid-cols-3 mb-20">
+      <div class="lg:w-1/2 w-full mb-6 lg:mb-0">
+        <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900"><p>You're looking for:</p><%= params[:rent_type] %></h1>
+     </div>
+     <% @rent_items.each do |item| %>
+      <div class=" grid xl:w-1/4 md:w-1 p-4">
+        <div class=" bg-blue-100 p-6 rounded-lg">
+          <img class="h-40 rounded w-full object-cover object-center mb-6" src="https://dummyimage.com/721x401" alt="content">
+          <h3 class="tracking-widest text-indigo-500 text-xs font-medium title-font"> </h3>
+          <h2 class="text-lg text-gray-900 font-medium title-font mb-4">
+          <h1 class="text-gray-900">Location:</h1>
+            <%= link_to item.location, "#", class:"underline"%>
+          </h2>
+          <p class="leading-relaxed text-base">
+          <ul>
+           <li><h1 class="text-gray-900"> Condition: </h1>
+           <%=item.condition%></li>
+          <li>
+          <h1 class="text-gray-900"> For: </h1>
+          <%= item.for_age%></li>
+          <li>
+          <h1 class="text-gray-900"> Type: </h1>
+          <%= item.item_type%></li>
+          </ul>
+          <%= button_to "View", "#", class:"bg-blue-500 hover:bg-blue-700 text-gray-100 font-bold py-2 px-8 rounded mx-10 mt-2"%>
+          </p>
+        </div>
+      </div>
+     <% end %>
+      </div>
+    </div>
+  </div>
+</section>
+<% end %>
