@@ -5,6 +5,10 @@ class RentItemsController < ApplicationController
 
   def index; end
 
+  def show
+    @rent_item = RentItem.find(params[:id])
+  end
+
   private
 
   def scope_rent_items
