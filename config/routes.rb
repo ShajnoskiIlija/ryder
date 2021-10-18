@@ -2,8 +2,7 @@
 
 Rails.application.routes.draw do
 
-  get '/rent_items', to: 'rent_items#index', as: 'rent_items'
-  get '/rent_items/:id', to: 'rent_items#show', as: 'rent_item'
+  resources :rent_items, only: %i[index show]
   devise_for :users
   get "/home", to: "pages#home"
   get "/about", to: "pages#about"
