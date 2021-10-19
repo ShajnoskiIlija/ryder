@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe 'rent_items/index.html.erb', type: :view do
+describe 'rent_items/index.html.erb', type: :view do
   let(:item) { create(:rent_item) }
 
   before do
