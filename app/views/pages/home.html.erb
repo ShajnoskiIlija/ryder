@@ -7,8 +7,6 @@
            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
             <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
               </svg>
-
-
         </div>
       <% end %>
       <div class="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
@@ -26,12 +24,21 @@
           </span>
           RYDER
         </h2>
-        <p class="text-base text-gray-700 md:text-lg">
-          Join and Share, the fastest growing online sharing platform
+          <% if user_signed_in? %>
+             <p class="text-base text-gray-700 md:text-lg">
+              Create Items For Rent...</p>
+           <% else %>
+            <p class="text-base text-gray-700 md:text-lg">Join and Share, the fastest growing online sharing platform</p>
+          <% end %>
         </p>
       </div>
       <div>
-        <%= link_to "Get Started","/",class:"inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-gray-700 transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none" %>
+      <% if user_signed_in? %>
+          <%= link_to "Get Started",new_dashboard_rent_item_path,class:"inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-gray-700 transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none" %>
+        <% else %>
+                <%= link_to "Get Started",new_user_registration_path,class:"inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-gray-700 transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none" %>
+       <% end %>
+
       </div>
     </div>
   </div>

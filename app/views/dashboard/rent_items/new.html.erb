@@ -1,4 +1,4 @@
-<div>
+<div class="grid items-center px-80">
   <%= form_with model: [:dashboard, @rent_item] do |f|%>
     <section class="max-w-4xl p-6 mx-auto bg-white rounded-md shadow-md dark:bg-gray-800">
         <h2 class="text-lg font-semibold text-gray-700 capitalize dark:text-white">New Rent Item</h2>
@@ -26,13 +26,11 @@
                 </div>
             </div>
 
-            <div class="flex justify-end mt-6">
+            <div class="flex items-center mt-12 ">
                 <button >
-                <%= f.submit class:"px-6 py-2 leading-5 text-white transition-colors duration-200 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600" %>
+                    <%= f.submit class:"px-6 py-2 leading-5 text-white transition-colors duration-200 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600" %>
+                    <%= button_to "Cancel" , dashboard_root_path, class:"px-6 py-2 leading-5 text-white transition-colors duration-200 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600"%>
                 </button>
-            </div>
-            <div class="flex justify-end mt-8">
-            <%= button_to "Cancel" , dashboard_root_path, class:"px-6 py-2 leading-5 text-white transition-colors duration-200 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600"%>
             </div>
         </form>
     </section>
