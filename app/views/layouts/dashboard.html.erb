@@ -39,7 +39,7 @@
                     <li class="mb-3 p-2 rounded-md flex items-center justify-center bg-yellow-200 cursor-pointer">
                     <%= link_to "Rentals", rent_items_path, class:"text-dark font-bold overflow"%>
                     </li>
-                    <%= link_to destroy_user_session_path do %>
+                    <%= link_to destroy_user_session_path, method: :delete do %>
                     <li class="absolute bottom-0 mb-3 p-2 rounded-full flex items-start px-4 py-2 bg-gray-200 cursor-pointer">
                       <i class="fas fa-power-off fa-sm text-indigo-600"></i>
                     </li>
@@ -107,8 +107,6 @@
         </aside>
         <!-- End Open Menu -->
         <!-- End Sidebar -->
-
-
           <%= yield %>
         </section>
     </div>

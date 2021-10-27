@@ -49,7 +49,6 @@ module Dashboard
     end
 
     def find_rent_item
-      # @rent_item = RentItem.find(params[:id])
       @rent_item = RentItem.my_rentals(current_user, params[:id]).first
     end
   end
