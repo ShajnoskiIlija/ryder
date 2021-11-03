@@ -7,7 +7,7 @@ class RentItem < ApplicationRecord
   validates :item_type, presence: true, if: :item_type_valid?
 
   def item_type_valid?
-    ITEM_TYPE.include?(item_type)
+    ITEM_TYPES.include?(item_type)
   end
 
   scope :rent_item_per_type, ->(rent_type) { where(item_type: rent_type) }
