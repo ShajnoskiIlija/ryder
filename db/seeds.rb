@@ -12,17 +12,11 @@ end
 
 puts 'Creating users...'
 
-11.times do |index|
-
-    # if index.zero?
-    #     create(:user, email: 'user@test.com', first_name: 'Ilija', last_name: 'Shajnoski')
-    # else
-    #     create(:user)
-    # end ## this is simplified below
+5.times do |index|
 
     user = index.zero? ? create(:user, email: 'user@test.com', first_name: 'Ilija', last_name: 'Shajnoski') : create(:user)
 
-    rand(2..6).times { create(:rent_item, user: user) }
+    rand(7..16).times { create(:rent_item, user: user) }
 end
 
 puts 'Seeding completed!'

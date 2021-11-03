@@ -14,6 +14,17 @@ RSpec.describe RentItem, type: :model do
     end
   end
 
+  describe 'item type validation' do
+    it 'passes' do
+      expect(rent_type.item_type_valid?).to eq(true)
+    end
+
+    it 'fails' do
+      rent_type.update!(item_type: 'testtest')
+      expect(rent_type.reload.item_type_valid?).to eq(false)
+    end
+  end
+
   describe 'associations' do
     it { is_expected.to belong_to(:user) }
   end

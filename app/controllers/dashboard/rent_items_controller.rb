@@ -2,10 +2,12 @@
 
 module Dashboard
   class RentItemsController < Dashboard::DashboardController
+    include Pagy::Backend
+
     before_action :find_rent_item, only: %i[show edit]
 
     def index
-      @rent_items = current_user.rent_items
+      @pagy, @rent_items = pagy(current_user.rent_items)
     end
 
     def show; end

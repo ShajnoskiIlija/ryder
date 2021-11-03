@@ -1,7 +1,7 @@
-<div class="max-h-screen bg-green-300 dark:bg-gray-900">
+<div class=" max-h-screen bg-green-300 dark:bg-gray-900">
   <div class= "container edit">
   <h2 class= "px-12 py-2 leading-5 text-gray-900 transition-colors"> Edit <%= resource_name.to_s.humanize %></h2>
-    <div class="flex flex-center min-h-screen px-16 mx-96 row-edit">
+    <div class="flex flex-center min-h-screen px-16 mx-96 row-edit ">
           <hr>
           <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
                 <%= render "devise/shared/error_messages", resource: resource %>
