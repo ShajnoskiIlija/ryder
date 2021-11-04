@@ -1,0 +1,25 @@
+.pagy-nav {
+    @apply mt-4 bottom-3 flex space-x-2;
+  }
+
+  .pagy-nav .page a {
+    @apply block px-3 py-2 mx-1 font-medium text-gray-700 bg-white rounded-md;
+    &:hover{
+      @apply bg-indigo-500 text-white;
+    }
+  }
+
+  .pagy-nav .page.prev.disabled,
+  .pagy-nav .page.next.disabled {
+    @apply px-3 py-2 mx-1 font-medium text-gray-500 bg-white rounded-md cursor-not-allowed;
+    &:hover {
+      @apply text-gray-400 bg-gray-200;
+    }
+  }
+
+  .pagy-nav .page.active {
+    @apply px-3 py-2 mx-1 font-medium bg-indigo-500 text-white rounded-md;
+    &:hover {
+      @apply bg-indigo-500 text-white;
+    }
+  }

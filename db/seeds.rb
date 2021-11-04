@@ -11,17 +11,12 @@ puts 'Creating contacts...'
 end
 
 puts 'Creating users...'
-create(:user, email: 'user@test.com', first_name: 'Ilija', last_name: 'Shajnoski')
 
-10.times do
-    user = create(:user)
+5.times do |index|
 
-    rand(2..5).times { create(:rent_item, user: user) }
+    user = index.zero? ? create(:user, email: 'user@test.com', first_name: 'Ilija', last_name: 'Shajnoski') : create(:user)
+
+    rand(7..16).times { create(:rent_item, user: user) }
 end
-
-# puts 'Creating items...'
-# 5.times do
-#     create(:rent_item)
-# end
 
 puts 'Seeding completed!'

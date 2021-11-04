@@ -7,39 +7,40 @@
                       <div class="mt-5 ml-auto max-w-xs">
                         <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|  %>
                           <%= render "devise/shared/error_messages", resource: resource %>
-                              <div class="field mb-1">
+                          <h3 class="text-gray-800 text-bold">Create Account</h3>
+                              <div class="field mb-2">
                               <%= f.label :first_name, class:"block text-grey-300 text-sm font-bold mb-2"%>
                               <%= f.text_field :first_name, class:"shadow appearance-none border rounded w-full h-6 py-2 px-3 text-grey-darker leading-tight focus:outline-none focus:shadow-outline", autofocus: true, autocomplete: "First Name", placeholder: "John"%>
                             </div>
-                            <div class="field mb-1">
+                            <div class="field mb-2">
                               <%= f.label :last_name, class:"block text-grey-300 text-sm font-bold mb-1 "%>
                               <%= f.text_field :last_name, class:"shadow appearance-none border rounded w-full h-6 py-2 px-3  text-grey-darker leading-tight focus:outline-none focus:shadow-outline", autofocus: true, autocomplete: "Last Name", placeholder: "Doe"%>
                             </div>
-                            <div class="field mb-1">
+                            <div class="field mb-2">
                               <%= f.label :address, class:"block text-grey-300 text-sm font-bold mb-1"%>
                               <%= f.text_field :address, class:"shadow appearance-none border rounded w-full h-6 py-2 px-3 text-grey-darker leading-tight focus:outline-none focus:shadow-outline", autofocus: true, autocomplete: "Your Address", placeholder: "your street"%>
                             </div>
-                            <div class="field mb-1">
+                            <div class="field mb-2">
                               <%= f.label :phone_number, class:"block text-grey-300 text-sm font-bold mb-1"%>
                               <%= f.telephone_field :phone_number, class:"shadow appearance-none border rounded w-full h-6 py-2 px-3 text-grey-darker leading-tight focus:outline-none focus:shadow-outline", autofocus: true, autocomplete: "Phone Number", placeholder: " + 389 333 555"%>
                             </div>
-                            <div class="field mb-1">
+                            <div class="field mb-2">
                               <%= f.label :email, class:"block text-grey-300 text-sm font-bold mb-1"%>
                               <%= f.email_field :email, class:"shadow appearance-none border rounded w-full h-6 py-2 px-3 text-grey-darker leading-tight focus:outline-none focus:shadow-outline", autofocus: true, autocomplete: "email", placeholder: "example@mail.com"%>
                             </div>
-                            <div class="field mb-10">
+                            <div class="field mb-4">
                               <%= f.label :password, class:"block text-grey-300 text-sm font-bold mb-1"%>
                               <% if @minimum_password_length %>
                               <em>(<%= @minimum_password_length %> characters minimum)</em>
                               <% end %>
                               <%= f.password_field :password, class:"shadow appearance-none border rounded w-full h-6 py-2 px-3 text-grey-darker leading-tight focus:outline-none focus:shadow-outline", autocomplete: "new-password"%>
                             </div>
-                            <div class="field mb-1">
+                            <div class="field mb-2">
                               <%= f.label :password_confirmation, class:"block text-grey-300 text-sm font-bold mb-1"%>
                               <%= f.password_field :password_confirmation, class:"shadow appearance-none border rounded w-full h-6 py-2 px-3 text-grey-darker leading-tight focus:outline-none focus:shadow-outline", autocomplete: "new-password"%>
                             </div>
-                            <div class="mt-10">
-                                 <%= f.submit "Sign up"%>
+                            <div class="mt-4 mb-2">
+                                 <%= f.submit "Sign up", class:"px-4 py-1 mt-4 leading-5 text-white transition-colors duration-200 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600"%>
                               </div>
                         <% end %>
                           <%= render "devise/shared/links"%>

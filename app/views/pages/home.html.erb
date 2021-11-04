@@ -7,8 +7,6 @@
            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
             <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
               </svg>
-
-
         </div>
       <% end %>
       <div class="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
@@ -26,12 +24,21 @@
           </span>
           RYDER
         </h2>
-        <p class="text-base text-gray-700 md:text-lg">
-          Join and Share, the fastest growing online sharing platform
+          <% if user_signed_in? %>
+             <p class="text-base text-gray-700 md:text-lg">
+              Create Items For Rent...</p>
+           <% else %>
+            <p class="text-base text-gray-700 md:text-lg">Join and Share, the fastest growing online sharing platform</p>
+          <% end %>
         </p>
       </div>
       <div>
-        <%= link_to "Get Started","/",class:"inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-gray-700 transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none" %>
+      <% if user_signed_in? %>
+          <%= link_to "Get Started",new_dashboard_rent_item_path,class:"inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-gray-700 transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none" %>
+        <% else %>
+                <%= link_to "Get Started",new_user_registration_path,class:"inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-gray-700 transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none" %>
+       <% end %>
+
       </div>
     </div>
   </div>
@@ -47,7 +54,7 @@
 			<div class="flex flex-col items-start mt-4">
 				<h4 class="text-xl font-semibold">BICYCLE</h4>
 				<p class="text-sm">Here you can find bicylces for your need.</p>
-				<%= link_to "Click Here", rent_items_path(rent_type: 'bicycle') ,class:"p-2 leading-none rounded font-medium mt-3 bg-gray-400 text-xs uppercase" %>
+				<%= link_to "Click Here", rent_items_path(rent_type: 'Bicycle') ,class:"p-2 leading-none rounded font-medium mt-3 bg-gray-400 text-xs uppercase" %>
 			</div>
 		</div>
 		<div class="flex flex-col bg-blue-700 rounded-lg p-4 m-2">
@@ -58,7 +65,7 @@
 			<div class="flex flex-col items-start mt-4">
 				<h4 class="text-xl font-semibold">ELECTRIC SCOOTER</h4>
 				<p class="text-sm">Find available electric scooter</p>
-			<%= link_to "Click Here", rent_items_path(rent_type: 'electric scooter') ,class:"p-2 leading-none rounded font-medium mt-3 bg-gray-400 text-xs uppercase" %>
+			<%= link_to "Click Here", rent_items_path(rent_type: 'Electric Scooter') ,class:"p-2 leading-none rounded font-medium mt-3 bg-gray-400 text-xs uppercase" %>
 			</div>
 		</div>
 		<div class="flex flex-col bg-purple-200 rounded-lg p-4 m-2">
@@ -69,7 +76,7 @@
 			<div class="flex flex-col items-start mt-4">
 				<h4 class="text-xl font-semibold">WINTER EQUIPMENT</h4>
 				<p class="text-sm">Lets go to the mountains.</p>
-			<%= link_to "Click Here", rent_items_path(rent_type: 'winter equipment') ,class:"p-2 leading-none rounded font-medium mt-3 bg-gray-400 text-xs uppercase" %>
+			<%= link_to "Click Here", rent_items_path(rent_type: 'Winter Equipment') ,class:"p-2 leading-none rounded font-medium mt-3 bg-gray-400 text-xs uppercase" %>
 			</div>
 		</div>
 		<div class="flex flex-col bg-red-200 rounded-lg p-4 m-2">
@@ -80,7 +87,7 @@
 			<div class="flex flex-col items-start mt-4">
 				<h4 class="text-xl font-semibold">SUMMER EQUIPMENT</h4>
 				<p class="text-sm">Have fun in summer hot days.</p>
-			<%=link_to  "Click Here", rent_items_path(rent_type: 'summer equipment'),class:"p-2 leading-none rounded font-medium mt-3 bg-gray-400 text-xs uppercase" %>
+			<%=link_to  "Click Here", rent_items_path(rent_type: 'Summer Equipment'),class:"p-2 leading-none rounded font-medium mt-3 bg-gray-400 text-xs uppercase" %>
 			</div>
 		</div>
 	</div>
