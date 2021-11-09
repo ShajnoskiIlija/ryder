@@ -23,7 +23,7 @@
   <body >
     <div class="flex h-full md:flex-row sm:h-full w-full lg:h-screen bg-gray-800 " x-data="{openMenu:1}">
         <!--Start SideBar-->
-        <aside class="w-20 relative z-20 flex-shrink-0 px-2 overflow-y-auto bg-green-400 sm:block">
+        <aside class="w-20 relative z-20 flex-shrink-0 px-2 overflow-y-auto bg-green-400">
             <div class="mb-6">
                 <!--Start NavItem -->
                 <div>
@@ -57,10 +57,10 @@
             </div>
         </aside>
         <!-- Start Open Menu -->
-        <aside class="animate__animated animate__fadeInLeft w-52 relative z-0 flex-shrink-0 hidden px-4 overflow-y-auto bg-gray-100 sm:block "
+        <aside class="animate__animated animate__fadeInLeft w-52 relative z-0 flex-shrink-0 hidden px-4 overflow-y-auto bg-gray-100"
                x-show="openMenu ==  1"
                @click.away="openMenu = null"
-               style="display: none;">
+               style="display: ;">
             <div class="mb-6">
               <!--Start Sidebar for open menu -->
               <div class="grid grid-cols-1 gap-4 mt-6">
