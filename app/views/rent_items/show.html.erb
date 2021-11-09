@@ -29,7 +29,7 @@
                     </svg>
 
                     <h1 class="px-2 text-sm">
-                    <%= link_to @rent_item.location, "#", class:"underline"%>
+                    <%= link_to @rent_item.user.address, "#", class:"underline"%>
                     </h1>
                 </div>
 
@@ -41,4 +41,9 @@
                     <h1 class="px-2 text-sm"><%= mail_to @rent_item.user.email, @rent_item.user.email, class: "underline" %></h1>
                 </div>
             </div>
+        </div>
+        <hr class="mt-4">
+        <div class="flex justify-center text-center mb-4 mt-6">
+            <iframe width="800" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
+            src="http://www.openstreetmap.org/export/embed.html?bbox=13.607666%2C38.370824%2C30.295899%2C44.319020&amp;layer=mapnik&amp;marker=<%= @rent_item.user.latitude %>%2C<%= @rent_item.user.longitude %>" style="border: 1px solid black"></iframe><br/>
         </div>

@@ -70,5 +70,4 @@ gem 'factory_bot_rails'
 
 gem 'devise'
 gem 'pagy'
-
-
+gem 'geocoder'
