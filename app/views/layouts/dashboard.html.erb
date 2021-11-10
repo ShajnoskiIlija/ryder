@@ -23,14 +23,13 @@
   <body >
     <div class="flex h-full md:flex-row sm:h-full w-full lg:h-screen bg-gray-800 " x-data="{openMenu:1}">
         <!--Start SideBar-->
-        <aside class="w-20 relative z-20 flex-shrink-0 px-2 overflow-y-auto bg-green-400 sm:block">
-            <div class="mb-6">
+        <aside class="w-20 relative z-20 flex-shrink-0 px-2 overflow-y-auto bg-green-400">
+             <div class="mb-6">
                 <!--Start NavItem -->
                 <div>
-                  <ul class="mt-6 leading-10 px-4">
+                  <ul class=" mt-6 leading-10 px-4">
                     <li class="mb-3 p-2 rounded-md flex items-center justify-center bg-blue-400 cursor-pointer"
-                        @click="openMenu !== 1 ? openMenu = 1 : openMenu = null"
-                      >
+                        @click="openMenu !== 1 ? openMenu = 1 : openMenu = null">
                       <i class="fas fa-align-left fa-sm text-white"></i>
                     </li>
                     <%= link_to root_path  do %>
@@ -38,13 +37,14 @@
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                           <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
                         </svg>
-                    <% end %>
                     </li>
+                    <% end %>
                       <%= link_to rent_items_path do%>
                         <li class="mb-3 p-2 rounded-md flex items-center justify-center bg-yellow-200 cursor-pointer">
                           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                             <path d="M7 3a1 1 0 000 2h6a1 1 0 100-2H7zM4 7a1 1 0 011-1h10a1 1 0 110 2H5a1 1 0 01-1-1zM2 11a2 2 0 012-2h12a2 2 0 012 2v4a2 2 0 01-2 2H4a2 2 0 01-2-2v-4z" />
                           </svg>
+                          </li>
                       <% end %>
                     <%= link_to destroy_user_session_path, method: :delete do %>
                     <li class="absolute bottom-0 mb-3 p-2 rounded-full flex items-start px-4 py-2 bg-gray-200 cursor-pointer">
@@ -57,7 +57,7 @@
             </div>
         </aside>
         <!-- Start Open Menu -->
-        <aside class="animate__animated animate__fadeInLeft w-52 relative z-0 flex-shrink-0 hidden px-4 overflow-y-auto bg-gray-100 sm:block "
+        <aside class="animate__animated animate__fadeInLeft w-52 relative z-0 flex-shrink-0  px-4 overflow-y-auto bg-gray-100 sm:block"
                x-show="openMenu ==  1"
                @click.away="openMenu = null"
                style="display: none;">
@@ -114,7 +114,15 @@
         </aside>
         <!-- End Open Menu -->
         <!-- End Sidebar -->
+        <div class="flex flex-col flex-1 w-full overflow-y-auto">
+            <!--Start Topbar -->
+            <!--End Topbar -->
+          <main class="relative z-0 flex-1 pb-8 px-6 bg-white">
+              <div class="grid pb-10  mt-4 ">
           <%= yield %>
+          </div>
+          </main>
+          </div>
     </div>
   </body>
 </html>
