@@ -4,7 +4,10 @@ module Dashboard
   class RentItemsController < Dashboard::DashboardController
     include Pagy::Backend
 
-    before_action :find_rent_item, only: %i[show edit]
+    before_action :find_rent_item, only: %i[show edit update]
+    # before_action :dev_rent_item, only: %i[edit update]
+    skip_before_action :verify_authenticity_token
+
 
     def index
       @pagy, @rent_items = pagy(current_user.rent_items)
@@ -31,8 +34,8 @@ module Dashboard
     def edit; end
 
     def update
-      if @rent_item.update(rent_item.params)
-        redirect_to @rent_item
+      if @rent_item.update(rent_item_params)
+        redirect_to dashboard_rent_items_path
       else
         render :edit
       end
@@ -47,11 +50,15 @@ module Dashboard
     private
 
     def rent_item_params
-      params.require(:rent_item).permit(:condition, :for_age, :item_type, :location)
+      params.require(:rent_item).permit(:condition, :for_age, :item_type, :location, :available)
     end
 
     def find_rent_item
       @rent_item = RentItem.my_rentals(current_user, params[:id]).first
     end
+
+    # def dev_rent_item
+    #   @rent_item = RentItem.where(available:true)
+    # end
   end
 end
