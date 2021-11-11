@@ -3,7 +3,6 @@
 class RentItemsController < ApplicationController
   before_action :scope_rent_items, only: :index
 
-
   def index; end
 
   def show

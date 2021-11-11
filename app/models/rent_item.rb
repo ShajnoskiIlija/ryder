@@ -5,7 +5,6 @@ class RentItem < ApplicationRecord
 
   validates :location, :condition, :item_type, presence: true
   validates :item_type, presence: true, if: :item_type_valid?
-  validates :available, presence: true
 
   def item_type_valid?
     ITEM_TYPES.include?(item_type)

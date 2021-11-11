@@ -3,7 +3,6 @@
     <% @rent_items.each do |rent_item| %>
         <div class="flex max-w-sm mx-5 mt-8 overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800 sm:text-center">
             <img class="object-cover hidden sm:block object-center w-1/2 h-56" src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80" alt="avatar">
-
             <div class=" px-6 py-4">
                 <p class="text-xl font-semibold text-gray-800 dark:text-white">
                     <%= link_to  rent_item.item_type.capitalize, rent_item%>
@@ -13,12 +12,11 @@
                   <%=link_to rent_item.for_age%>
                 </p>
                  <p class="py-2 text-gray-700 border-t-2 dark:text-gray-400"> Status:
-
-                 <% if rent_item.available == true %>
+                    <% if rent_item.available == true %>
                       <p> Available for rent</p>
-                    <% else %>
-                    <p> Taken</p>
-                 <% end %>
+                     <% else %>
+                      <p> Taken</p>
+                    <% end %>
                 </p>
                     <%=link_to "View Pictures", '#', class:'md:hidden lg:hidden py-1 text-sm underline'%>
                 <div class="flex items-center object-contain md:object-scale-down mt-4 text-gray-700 dark:text-gray-200">
@@ -47,8 +45,9 @@
                         <%= mail_to rent_item.user.email, rent_item.user.email, class:"underline"%>
                     </h1>
                 </div>
-                <%= link_to 'Edit', edit_dashboard_rent_item_path(rent_item), class:""%>
-
+                <div class="mt-2">
+                    <%= link_to 'Edit', edit_dashboard_rent_item_path(rent_item), class:"shadow"%>
+                </div>
             </div>
         </div>
     <% end %>

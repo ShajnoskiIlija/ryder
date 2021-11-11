@@ -5,9 +5,7 @@ module Dashboard
     include Pagy::Backend
 
     before_action :find_rent_item, only: %i[show edit update]
-    # before_action :dev_rent_item, only: %i[edit update]
     skip_before_action :verify_authenticity_token
-
 
     def index
       @pagy, @rent_items = pagy(current_user.rent_items)
@@ -56,9 +54,5 @@ module Dashboard
     def find_rent_item
       @rent_item = RentItem.my_rentals(current_user, params[:id]).first
     end
-
-    # def dev_rent_item
-    #   @rent_item = RentItem.where(available:true)
-    # end
   end
 end
