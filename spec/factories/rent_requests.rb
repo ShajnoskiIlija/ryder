@@ -2,6 +2,6 @@
 
 FactoryBot.define do
   factory :rent_request do
-    status { 'MyString' }
+    status { %w[pending accepted rejected canceled].sample }
   end
 end
