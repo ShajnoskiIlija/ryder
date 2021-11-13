@@ -11,6 +11,7 @@ RSpec.describe RentItem, type: :model do
     describe 'validations' do
       it { expect(rent_item).to be_valid }
       it { expect(rent_item).to validate_presence_of(:location) }
+      it { expect(rent_item).to validate_presence_of(:item_type) }
     end
   end
 

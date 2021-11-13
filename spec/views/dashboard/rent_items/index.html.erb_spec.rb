@@ -12,7 +12,8 @@ describe 'dashboard/rent_items/index.html.erb' do # rubocop:disable RSpec/Descri
 
       render
 
-      expect(rendered).to include(rent_item.item_type.capitalize, rent_item.for_age, rent_item.condition, rent_item.user.email, 'Best for')
+      expect(rendered).to include(rent_item.item_type.capitalize, rent_item.for_age, rent_item.condition, rent_item.user.email, rent_item.location, 'Best for', 'Status')
+      expect(rent_item.available).to be_in([true, false])
     end
   end
 end

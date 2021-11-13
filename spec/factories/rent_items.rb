@@ -7,5 +7,6 @@ FactoryBot.define do
     condition { CONDITIONS.sample }
     for_age { FOR_AGES.sample }
     item_type { ITEM_TYPES.sample }
+    available { Faker::Boolean.boolean }
   end
 end

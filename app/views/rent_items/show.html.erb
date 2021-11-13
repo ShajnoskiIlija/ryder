@@ -10,6 +10,12 @@
                  <p class="py-2 text-gray-900 font-semibold border-t-2 dark:text-gray-400"> Call Me:</p>
                   <%= @rent_item.user.phone_number%>
                 <p>Owner: <%= @rent_item.user.first_name%> <%= @rent_item.user.last_name%></p>
+                <p class="border-t-2">Current status:</p>
+                    <% if @rent_item.available%>
+                        <p class="text-green-500"> Available for rent</p>
+                        <% else %>
+                        <p class="text-red-500"> Taken</p>
+                    <% end %>
 
                 <p class="py-2 text-gray-700 border-t-2 dark:text-gray-400"> Best for:
                   <%= @rent_item.for_age%>

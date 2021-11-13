@@ -4,7 +4,7 @@ module Dashboard
   class RentItemsController < Dashboard::DashboardController
     include Pagy::Backend
 
-    before_action :find_rent_item, only: %i[show edit]
+    before_action :find_rent_item, only: %i[show edit update]
 
     def index
       @pagy, @rent_items = pagy(current_user.rent_items)
@@ -21,8 +21,7 @@ module Dashboard
       @rent_item.user_id = current_user.id
 
       if @rent_item.save
-
-        redirect_to @rent_item
+        redirect_to @rent_item, notice: 'Rent Item has been successfully created!'
       else
         render :new
       end
@@ -31,8 +30,8 @@ module Dashboard
     def edit; end
 
     def update
-      if @rent_item.update(rent_item.params)
-        redirect_to @rent_item
+      if @rent_item.update(rent_item_params)
+        redirect_to dashboard_rent_items_path, notice: 'Rent Item has been updated!'
       else
         render :edit
       end
@@ -47,7 +46,7 @@ module Dashboard
     private
 
     def rent_item_params
-      params.require(:rent_item).permit(:condition, :for_age, :item_type, :location)
+      params.require(:rent_item).permit(:condition, :for_age, :item_type, :location, :available)
     end
 
     def find_rent_item
