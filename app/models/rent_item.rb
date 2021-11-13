@@ -2,6 +2,7 @@
 
 class RentItem < ApplicationRecord
   belongs_to :user
+  has_many :rent_requests, dependent: :destroy
 
   validates :location, :condition, :item_type, presence: true
   validates :item_type, presence: true, if: :item_type_valid?
