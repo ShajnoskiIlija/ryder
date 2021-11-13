@@ -10,6 +10,7 @@ class User < ApplicationRecord
   validates :email, uniqueness: true
 
   has_many :rent_items, dependent: :destroy
+  has_many :rent_requests, dependent: :destroy
 
   geocoded_by :address
   after_validation :geocode, if: :address_changed

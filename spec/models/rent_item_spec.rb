@@ -28,6 +28,7 @@ RSpec.describe RentItem, type: :model do
 
   describe 'associations' do
     it { is_expected.to belong_to(:user) }
+    it { is_expected.to have_many(:rent_requests) }
   end
 
   describe 'should include scope' do
