@@ -19,4 +19,10 @@ puts 'Creating users...'
     rand(7..16).times { create(:rent_item, user: user) }
 end
 
+puts 'Creating requests'
+
+3.times do
+ rand(1..4).times { create(:rent_request) }
+end
+
 puts 'Seeding completed!'

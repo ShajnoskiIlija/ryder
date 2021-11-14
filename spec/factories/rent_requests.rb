@@ -2,6 +2,8 @@
 
 FactoryBot.define do
   factory :rent_request do
-    status { %w[pending accepted rejected canceled].sample }
+    association :user, factory: :user
+    association :rent_item, factory: :rent_item
+    status { %w[Pending Accepted Rejected Canceled].sample }
   end
 end
