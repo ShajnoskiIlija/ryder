@@ -1,18 +1,18 @@
 <div class="flex flex-col items-center">
     <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 pl-2 pr-2 py-6">
-        <% @rent_requests.each do |request| %>
+        <% @rent_requests.each do |rent_request| %>
             <div class="flex max-w-sm mx-5 mt-8 overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800 sm:text-center">
                 <img class="object-cover hidden sm:block object-center w-1/2 h-56" src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80" alt="avatar">
                 <div class=" px-6 py-4">
                     <p class="text-xl font-semibold text-gray-800 dark:text-white">
-                        <%= link_to  request.rent_item.item_type, dashboard_rent_items_path%>
+                        <%= link_to  rent_request.rent_item.item_type, dashboard_rent_items_path%>
                     </p>
                     <p class="py-2 text-gray-700 border-t-2 dark:text-gray-400">Requesting:</p>
-                    <%=link_to request.user.first_name, '#'%> <%=link_to request.user.last_name, "#"%>
+                    <%=link_to rent_request.user.first_name, '#'%> <%=link_to rent_request.user.last_name, "#"%>
                         <%=link_to "View Pictures", '#', class:'md:hidden lg:hidden py-1 text-sm underline'%>
                     <div class="flex items-center object-contain md:object-scale-down mt-4 text-gray-700 dark:text-gray-200">
                         <p>Phone:</p>
-                        <h1 class="px-2 text-sm"><%=link_to request.user.phone_number, "#"%></h1>
+                        <h1 class="px-2 text-sm"><%=link_to rent_request.user.phone_number, "#"%></h1>
                     </div>
 
                     <div class="flex items-center md:place-items-center mt-4 text-gray-700 dark:text-gray-200">
@@ -22,7 +22,7 @@
 
                         <h1 class="px-2 text-sm">
                             <p>From:</p>
-                            <%= link_to request.user.address, '#', class:"underline"%>
+                            <%= link_to rent_request.user.address, '#', class:"underline"%>
                         </h1>
                     </div>
                 </div>
