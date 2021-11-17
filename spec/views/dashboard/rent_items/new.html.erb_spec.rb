@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-describe 'dashboard/rent_items/new.html.erb' do # rubocop:disable RSpec/DescribeClass
+describe 'dashboard/rent_items/new.html.erb', type: :view do
   let(:rent_item) { create(:rent_item) }
 
   it 'display rent item form' do # rubocop:disable RSpec/ExampleLength

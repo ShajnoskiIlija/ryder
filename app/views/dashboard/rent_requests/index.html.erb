@@ -7,6 +7,8 @@
                     <p class="text-xl font-semibold text-gray-800 dark:text-white">
                         <%= link_to  rent_request.rent_item.item_type, dashboard_rent_items_path%>
                     </p>
+                    <p>Current Status</p>
+                    <%=rent_request.status.capitalize%>
                     <p class="py-2 text-gray-700 border-t-2 dark:text-gray-400">Requesting:</p>
                     <%=link_to rent_request.user.first_name, '#'%> <%=link_to rent_request.user.last_name, "#"%>
                         <%=link_to "View Pictures", '#', class:'md:hidden lg:hidden py-1 text-sm underline'%>
@@ -24,6 +26,14 @@
                             <p>From:</p>
                             <%= link_to rent_request.user.address, '#', class:"underline"%>
                         </h1>
+                    </div>
+                    <div>
+
+                    <%= form_with model: rent_request, url: dashboard_rent_request_path(rent_request), method: :put do |f| %>
+                      <p class= 'mt-4 text-xl text-green-500 dark:text-white'> Select Status</p>
+                      <%= f.select :status, options_for_select([['Accept', 'accept'], ['Reject', 'reject']]), { prompt: 'Select' } %>
+                      <%= f.submit 'Update Status', class: 'px-6 m-2 py-2 leading-5 text-white transition-colors duration-200 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600' %>
+                    <% end %>
                     </div>
                 </div>
             </div>

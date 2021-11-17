@@ -15,17 +15,28 @@ describe Dashboard::RentRequestsController, type: :controller do
     end
   end
 
-  describe 'GET /create,' do
+  describe 'post /create,' do
     it 'returns http success' do
       post :create
       expect(response).to have_http_status(:success)
     end
   end
 
-  describe 'GET /update' do
-    xit 'returns http success' do # xit == pending
-      patch :update
-      expect(response).to have_http_status(:success)
+  describe 'put /update' do
+    let(:rent_request) { create(:rent_request, user: user) }
+
+    context 'with valid attributes' do
+      it 'updates requests' do
+        put :update, params: { id: rent_request.id, rent_request: { status: 'Pending' } }
+        allow(rent_request).to receive(:status).and_return('Pending')
+      end
+    end
+
+    context 'with invalid attributes' do
+      it 'does not updates request' do
+        put :update, params: { id: rent_request.id, rent_request: { status: '' } }
+        expect(response).not_to be_redirect
+      end
     end
   end
 end

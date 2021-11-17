@@ -22,7 +22,7 @@ end
 puts 'Creating requests'
 
 3.times do
- rand(1..4).times { create(:rent_request) }
+ rand(1..4).times { create(:rent_request, user: User.all.sample) }
 end
 
 puts 'Seeding completed!'

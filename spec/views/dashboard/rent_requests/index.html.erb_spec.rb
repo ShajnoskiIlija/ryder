@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-describe 'dashboard/rent_requests/index.html.erb' do # rubocop:disable RSpec/DescribeClass
+describe 'dashboard/rent_requests/index.html.erb', type: :view do
   let(:rent_request) { create(:rent_request) }
   let(:rent_items) { create(:rent_item) }
 
@@ -19,6 +19,7 @@ describe 'dashboard/rent_requests/index.html.erb' do # rubocop:disable RSpec/Des
                                   rent_request.user.phone_number,
                                   rent_request.user.last_name,
                                   rent_request.user.address,
+                                  rent_request.status.capitalize,
                                   'From',
                                   'Phone',
                                   'Requesting')

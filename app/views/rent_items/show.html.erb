@@ -1,5 +1,4 @@
-
-        <div class="max-w-sm mx-auto mt-8 overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800">
+       <div class="max-w-sm mx-auto mt-8 overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800">
             <img class="object-cover object-center w-full h-56" src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80" alt="avatar">
 
             <div class="px-6 py-4">
@@ -46,6 +45,17 @@
 
                     <h1 class="px-2 text-sm"><%= mail_to @rent_item.user.email, @rent_item.user.email, class: "underline" %></h1>
                 </div>
+                <div class= 'px-6 m-2 py-2 leading-5 text-red-600 transition-colors duration-200 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600'>
+                    <% if user_signed_in? && @rent_item.available %>
+                        <%# button_to "Send Request", method: :create %>
+
+                        <%= form_with model: RentRequest.new, url: dashboard_rent_requests_path do |f| %>
+                            <%= f.hidden_field :status, value: 'pending' %>
+                            <%= f.submit 'Send Request' %>
+                        <% end %>
+                    <% end %>
+                </div>
+
             </div>
         </div>
         <hr class="mt-4">
