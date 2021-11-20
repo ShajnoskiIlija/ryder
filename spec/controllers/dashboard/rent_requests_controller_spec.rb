@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 describe Dashboard::RentRequestsController, type: :controller do
-  let(:rent_request) { create(:rent_request) }
+  let(:rent_request) { create(:rent_request, status: 'pending') }
   let!(:user) { create :user }
 
   before { sign_in user }
@@ -16,18 +16,31 @@ describe Dashboard::RentRequestsController, type: :controller do
   end
 
   describe 'post /create,' do
-    it 'returns http success' do
-      post :create
-      expect(response).to have_http_status(:success)
+    context 'with vallid attributes' do
+      it 'creates new request' do
+        expect do
+          post :create,
+               params: { rent_request: { id: rent_request.id, status: 'pending' } }
+        end.to change(RentRequest, :count).by(1)
+      end
+    end
+
+    context 'with invalid attributes' do
+      it 'doesnt create new request' do
+        expect do
+          post :create,
+               params: { rent_request: { status: '' } }
+        end.to change(RentItem, :count).by(0)
+      end
     end
   end
 
   describe 'put /update' do
-    let(:rent_request) { create(:rent_request, user: user) }
+    let(:rent_request) { create(:rent_request, user: user, status: 'pending') }
 
     context 'with valid attributes' do
       it 'updates requests' do
-        put :update, params: { id: rent_request.id, rent_request: { status: 'Pending' } }
+        put :update, params: { id: rent_request.id, rent_request: { status: 'pending' } }
         allow(rent_request).to receive(:status).and_return('Pending')
       end
     end
@@ -35,7 +48,7 @@ describe Dashboard::RentRequestsController, type: :controller do
     context 'with invalid attributes' do
       it 'does not updates request' do
         put :update, params: { id: rent_request.id, rent_request: { status: '' } }
-        expect(response).not_to be_redirect
+        expect(response).to be_redirect
       end
     end
   end

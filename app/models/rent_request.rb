@@ -1,12 +1,15 @@
 # frozen_string_literal: true
 
 class RentRequest < ApplicationRecord
-  validates :status, presence: true
-
   belongs_to :rent_item
   belongs_to :user
 
-  def satus_arg
-    status %w[Pending Accepted Rejected Canceled].freeze
+  STATUSES = %w[pending accepted rejected canceled].freeze
+  UPDATE_STATUSES = %w[accepted rejected].freeze
+
+  validates :status, inclusion: { in: UPDATE_STATUSES }, on: :update
+
+  before_create do
+    self.status = 'pending'
   end
 end

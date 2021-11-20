@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 describe 'dashboard/rent_requests/index.html.erb', type: :view do
-  let(:rent_request) { create(:rent_request) }
+  let(:rent_request) { create(:rent_request, status: 'pending') }
   let(:rent_items) { create(:rent_item) }
 
   before do
