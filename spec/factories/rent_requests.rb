@@ -2,6 +2,7 @@
 
 FactoryBot.define do
   factory :rent_request do
-    status { 'MyString' }
+    association :user, factory: :user
+    association :rent_item, factory: :rent_item
   end
 end

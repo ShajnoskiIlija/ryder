@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-describe 'dashboard/rent_items/index.html.erb' do # rubocop:disable RSpec/DescribeClass
+describe 'dashboard/rent_items/index.html.erb', type: :view do
   let(:rent_item) { create(:rent_item) }
 
   context 'with dynamic content' do
