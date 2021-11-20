@@ -119,8 +119,12 @@
             <!--End Topbar -->
           <main class="relative z-0 flex-1 pb-8 px-6 bg-gray-800">
               <div class="grid pb-10  mt-4 bg-gray-800 ">
-              <p class="notice"><%= notice %></p>
-       <p class="alert"><%= alert %></p>
+                      <% flash.each do |type, msg|  %>
+                        <div class="notice flex justify-center bg-<%= type == 'notice' ? 'green' : 'red' %>-500">
+
+                          <%=msg %>
+                        </div>
+                      <% end %>
           <%= yield %>
           </div>
           </main>
