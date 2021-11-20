@@ -22,7 +22,7 @@ module Dashboard
       if @rent_request.update(rent_request_params)
         redirect_to dashboard_rent_requests_path, notice: 'Rent Request successfully updated'
       else
-        redirect_to dashboard_rent_requests_path, notice: 'Rent Request unsuccessfully updated'
+        redirect_to dashboard_rent_requests_path, alert:  'Rent Request was not updated '
       end
     end
 
