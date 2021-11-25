@@ -1,49 +1,49 @@
-<nav data-controller="dropdown" class="bg-gray-800 shadow dark:bg-gray-800">
-        <div  class="container px-6 py-4 mx-auto ">
-            <div class="md:flex md:flex-row md:justify-between items-center">
-                <div class="md:flex md:flex-row items-center">
-                    <div class="flex justify-between ">
-                        <!-- Logo-->
-                        <div class="text-xl font-semibold text-green-700">
-                            <%= link_to "RYDER", root_path, class:"text-2xl font-bold text-green-800 dark:text-white lg:text-3xl hover:text-blue-700 dark:hover:text-gray-300"%>
-                        </div>
-                        <!-- Mobile menu button -->
-                        <div class="flex md:hidden">
-                            <button data-action="click->dropdown#hamburger" type="button" class="text-gray-500 dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-400 focus:outline-none focus:text-gray-600 dark:focus:text-gray-400" aria-label="toggle menu">
-                                <svg viewBox="0 0 24 24" class="w-6 h-6 fill-current">
-                                    <path fill-rule="evenodd" d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"></path>
-                                </svg>
-                            </button>
-                        </div>
-                    </div>
-                <!-- Mobile Menu open: "block", Menu closed: "hidden" -->
-                    <div data-dropdown-target="dropdown">
-                        <div class="flex flex-col md:flex-row md:items-center md:mx-8">
-                            <% if user_signed_in? %>
-                                <%= link_to "Rentals", rent_items_path, class:"px-2 py-1 mx-2 mt-2 text-sm font-medium text-gray-50 transition-colors duration-200 transform rounded-md md:mt-0 dark:text-gray-200 hover:bg-gray-700 dark:hover:bg-gray-300"%>
-                                <%= link_to "Dashboard", dashboard_root_path, class:"px-2 py-1 mx-2 mt-2 text-sm font-medium text-gray-50 transition-colors duration-200 transform rounded-md md:mt-0 dark:text-gray-200 hover:bg-gray-700 dark:hover:bg-gray-300"%>
-                                <%= link_to "About us", about_path,  class:"px-2 py-1 mx-2 mt-2 text-sm font-medium text-gray-50 transition-colors duration-200 transform rounded-md md:mt-0 dark:text-gray-200 hover:bg-gray-700 dark:hover:bg-gray-300"%>
-                                <%= link_to "Sign out", destroy_user_session_path, method: :delete, class:"px-2 py-1 mx-2 mt-2 text-sm font-medium text-gray-50 transition-colors duration-200 transform rounded-md md:mt-0 dark:text-gray-200 hover:bg-gray-700 dark:hover:bg-gray-300"%>
-                                <% else %>
-                                <%= link_to "Log in", new_user_session_path, class:"px-2 py-1 mx-2 mt-2 text-sm font-medium text-gray-50 transition-colors duration-200 transform rounded-md md:mt-0 dark:text-gray-200 hover:bg-gray-700 dark:hover:bg-gray-300"%>
-                                <%= link_to "Sign up", new_user_registration_path, class:"px-2 py-1 mx-2 mt-2 text-sm font-medium text-gray-50 transition-colors duration-200 transform rounded-md md:mt-0 dark:text-gray-200 hover:bg-gray-700 dark:hover:bg-gray-300"%>
-                                <%= link_to "About us", about_path,  class:"px-2 py-1 mx-2 mt-2 text-sm font-medium text-gray-50 transition-colors duration-200 transform rounded-md md:mt-0 dark:text-gray-200 hover:bg-gray-700 dark:hover:bg-gray-300"%>
-                            <% end %>
-                        </div>
-                    </div>
-                </div>
-                <!-- logged user ?-->
-                <% if user_signed_in? %>
-                    <div class="hidden md:block mx-2 text-sm font-medium text-gray-200 dark:text-gray-200 justify-end transform rounded-md hover:bg-gray-700">
-                        <p>Logged in as:
-                            <%= current_user.first_name%> <%= current_user.last_name%>
-                        </p>
-                    </div>
-                    <div class="flex md:hidden items-center mt-4 md:mt-0">
-                        <button data-action="click->dropdown#hamburger" class="hidden mx-4 text-gray-600 md:block dark:text-gray-200 hover:text-gray-700 dark:hover:text-gray-400 focus:text-gray-700 dark:focus:text-gray-400 focus:outline-none" aria-label="show notifications">
-                        </button>
-                    </div>
-                <% end %>
+<nav data-controller="dropdown" class="bg-gray-100 shadow dark:bg-gray-800">
+  <div  class="container px-6 py-4 mx-auto ">
+    <div class="md:flex md:flex-row md:justify-between items-center">
+      <div class="md:flex md:flex-row items-center">
+          <div class="flex justify-between ">
+            <!-- Logo-->
+            <div class="text-xl font-semibold text-green-400">
+              <%= link_to "RYDER", root_path, class:"text-2xl font-bold text-green-800 dark:text-white lg:text-3xl hover:text-blue-700 dark:hover:text-gray-300"%>
             </div>
-        </div>
-    </nav>
+            <!-- Mobile menu button -->
+            <div class="flex md:hidden">
+              <button data-action="click->dropdown#hamburger" type="button" class="text-gray-500 dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-400 focus:outline-none focus:text-gray-600 dark:focus:text-gray-400" aria-label="toggle menu">
+                <svg viewBox="0 0 24 24" class="w-6 h-6 fill-current">
+                  <path fill-rule="evenodd" d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"></path>
+                </svg>
+              </button>
+            </div>
+          </div>
+          <!-- Mobile Menu open: "block", Menu closed: "hidden" -->
+          <div data-dropdown-target="dropdown">
+            <div class="flex flex-col md:flex-row md:items-center md:mx-8">
+              <% if user_signed_in? %>
+                <%= link_to "Rentals", rent_items_path, class:"px-2 py-1 mx-2 mt-2 text-sm font-medium text-gray-900 transition-colors duration-200 transform rounded-md md:mt-0 dark:text-gray-800 hover:bg-gray-400 dark:hover:bg-gray-300"%>
+                <%= link_to "Dashboard", dashboard_root_path, class:"px-2 py-1 mx-2 mt-2 text-sm font-medium text-gray-900 transition-colors duration-200 transform rounded-md md:mt-0 dark:text-gray-200 hover:bg-gray-400 dark:hover:bg-gray-300"%>
+                <%= link_to "About us", about_path,  class:"px-2 py-1 mx-2 mt-2 text-sm font-medium text-gray-900 transition-colors duration-200 transform rounded-md md:mt-0 dark:text-gray-200 hover:bg-gray-400 dark:hover:bg-gray-300"%>
+                <%= link_to "Sign out", destroy_user_session_path, method: :delete, class:"px-2 py-1 mx-2 mt-2 text-sm font-medium text-gray-900 transition-colors duration-200 transform rounded-md md:mt-0 dark:text-gray-200 hover:bg-gray-700 dark:hover:bg-gray-300"%>
+                <% else %>
+                <%= link_to "Log in", new_user_session_path, class:"px-2 py-1 mx-2 mt-2 text-sm font-medium text-gray-900 transition-colors duration-200 transform rounded-md md:mt-0 dark:text-gray-200 hover:bg-gray-400 dark:hover:bg-gray-300"%>
+                <%= link_to "Sign up", new_user_registration_path, class:"px-2 py-1 mx-2 mt-2 text-sm font-medium text-gray-900 transition-colors duration-200 transform rounded-md md:mt-0 dark:text-gray-200 hover:bg-gray-400 dark:hover:bg-gray-300"%>
+                <%= link_to "About us", about_path,  class:"px-2 py-1 mx-2 mt-2 text-sm font-medium text-gray-900 transition-colors duration-200 transform rounded-md md:mt-0 dark:text-gray-200 hover:bg-gray-400 dark:hover:bg-gray-400"%>
+              <% end %>
+            </div>
+          </div>
+      </div>
+      <!-- logged user ?-->
+      <% if user_signed_in? %>
+          <div class="hidden md:block mx-2 text-sm font-medium text-gray-900 dark:text-gray-200 justify-end transform rounded-md hover:bg-gray-400">
+              <p>Logged in as:
+                  <%= current_user.first_name%> <%= current_user.last_name%>
+              </p>
+          </div>
+          <div class="flex md:hidden items-center mt-4 md:mt-0">
+              <button data-action="click->dropdown#hamburger" class="hidden mx-4 text-gray-600 md:block dark:text-gray-200 hover:text-gray-700 dark:hover:text-gray-200 focus:text-gray-700 dark:focus:text-gray-400 focus:outline-none" aria-label="show notifications">
+              </button>
+          </div>
+      <% end %>
+    </div>
+  </div>
+</nav>
