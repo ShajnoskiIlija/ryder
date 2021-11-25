@@ -11,7 +11,7 @@ describe 'rent_items/index.html.erb', type: :view do
 
   it 'displays titles' do
     render
-    expect(rendered).to include('Condition:', 'For:', 'Type:', "You're looking for:")
+    expect(rendered).to include('Condition:', 'For:', 'Location:', "You're looking for:")
   end
 
   it 'displays a cards' do
