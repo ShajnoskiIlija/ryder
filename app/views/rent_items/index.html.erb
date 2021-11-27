@@ -8,45 +8,13 @@
     </p>
     <% end %>
 <% else %>
-  <section class="blog text-gray-700 rounded-md bg-gray-200">
-    <div class=" container px-2 py-8 mx-auto rounded-md">
+  <section class="blog text-gray-700 rounded-md ">
+    <div class="max-w-6xl px-2 py-8 mx-auto rounded-md">
       <div class="w-full my-10 items-center text-center drop-shadow">
         <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900 filter"><p>You're looking for:</p><%= params[:rent_type] %></p></h1>
       </div>
-      <div class="sm:grid grid-cols-1 md:grid-cols-3 ">
-        <% @rent_items.each do |item| %>
-        <div class=" grid mx-4 mb-8 mt-6">
-            <div class=" bg-indigo-200 rounded-md">
-              <div class=" w-70 bg-indigo-100 -mt-10 shadow rounded-lg overflow-hidden">
-                <div class="bg-gray-300 h-56 w-full rounded-lg shadow-md bg-cover bg-center" style="background-image: url(<%= asset_path 'cards/for_rent.jpg' %>)"></div>
-                  <div class="header-content inline-flex ">
-                    <div class="category-badge flex-1  h-4 w-4 m rounded-full m-1 bg-purple-400">
-                      <div class="h-2 w-2 rounded-full m-1 bg-purple-500 "></div>
-                    </div>
-                  <div class="category-title flex-1 text-sm font-bold"><%= item.item_type%></div>
-                </div>
-
-              </div>
-            <div class= "my-1">
-              <div class=" w-70 bg-indigo-200 mt-10 shadow-lg rounded-lg overflow-hidden pl-5">
-                <h1 class="text-gray-900 font-semibold">Location:</h1>
-                  <%= link_to item.location, "#", class:"underline"%>
-                </h2>
-                <p class="leading-relaxed text-base">
-                <ul>
-                  <li><h1 class="text-gray-900 font-semibold"> Condition: </h1>
-                    <%=item.condition%></li>
-                  <li>
-                  <h1 class="text-gray-900 font-semibold"> For: </h1>
-                  <%= item.for_age%></li>
-                </ul>
-              </div>
-              <%= link_to "View", rent_item_path(item), class:"bg-indigo-400 text-gray-900 mt-2 block rounded w-full p-2 text-center text-sm font-bold"%>
-            </div>
-          </div>
-        </div>
-      <% end %>
-        </div>
+      <div class="sm:grid grid-cols-1 md:grid-cols-3 gap-8">
+        <%= render partial: 'rent_item', collection:  @rent_items, as: :item %>
       </div>
     </div>
   </section>

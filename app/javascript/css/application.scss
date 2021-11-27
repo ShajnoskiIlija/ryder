@@ -3,3 +3,11 @@
 @import "tailwindcss/components";
 @import "./dashboard.scss";
 @import "pagy";
+
+.homepage-rent-type {
+    &:hover {
+        .current-rent-type {
+            @apply transition-all duration-700 ease-in-out bg-green-600 text-white;
+        }
+    }
+}

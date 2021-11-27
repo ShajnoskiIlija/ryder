@@ -5,17 +5,17 @@
       <h4 class="text-orange-300    text-2xl" id="moka-8q3tt" style="font-family: Abel;">Welcome</h4>
       <h2 class="text-gray-900 text-5xl text-center mt-2 mb-20" id="moka-cqg7a"> Start here and now</h2>
         <% if user_signed_in? %>
-          <%= link_to "View Rents", dashboard_root_path, class:"hover:text-gray-300 bg-green-600 text-white text-center hover:bg-black w-56 p-4 text-2xl font-bold", style:"font-family: Barlow"  %>
+          <%= link_to "View Rents", dashboard_root_path, class:"hover:bg-green-700 bg-green-600 text-white text-center w-56 p-3 text-2xl font-bold rounded-lg", style:"font-family: Barlow"  %>
         <% else %>
-          <%= link_to "Get Started", new_user_registration_path, class:"hover:text-gray-300 bg-green-600 text-white text-center hover:bg-black w-56 p-4 text-2xl font-bold", style:"font-family: Barlow"  %>
+          <%= link_to "Get Started", new_user_registration_path, class:"hover:bg-green-700 bg-green-600 text-white text-center w-56 p-3 text-2xl font-bold rounded-lg", style:"font-family: Barlow"  %>
         <% end %>
     </div>
   </div>
 </div>
-<div class="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20 shadow">
+<div class="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
   <div class="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
     <div>
-      <p class="inline-block px-3 py-px mb-4 text-xs shaddow font-semibold tracking-wider text-teal-900 uppercase rounded-full bg-teal-accent-400">Rentals</p>
+      <p class="inline-block px-3 py-px mb-4 text-xs shaddow font-bold tracking-wider uppercase">Rentals</p>
     </div>
     <h2 class="max-w-lg mb-6 font-sans text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-4xl md:mx-auto">
       <span class="relative inline-block">
@@ -31,55 +31,16 @@
       </span>
       Rentals that will fit your needs
     </h2>
-    <p class="text-base text-gray-700 md:text-lg">
-      Search Here
-    </p>
   </div>
     <div class="grid gap-5 row-gap-5 mb-8 lg:grid-cols-4 sm:grid-cols-2">
-    <div class="flex flex-col items-center justify-center max-w-sm mx-auto">
-      <div class="w-full h-64 bg-gray-300 bg-center bg-cover rounded-lg shadow-md" style="background-image: url(<%= asset_path 'cards/bicycle.jpg'%>)"></div>
-      <div class="w-56 -mt-10 overflow-hidden bg-white rounded-lg shadow-lg md:w-64 dark:bg-gray-800">
-        <h3 class="py-2 font-bold tracking-wide text-center text-gray-800 uppercase dark:text-white">Bicycles</h3>
-        <div class="flex items-center justify-between px-3 py-2 bg-gray-200 dark:bg-gray-700">
-          <div class="px-2 py-1 text-xs font-semibold text-white uppercase transition-colors duration-200 transform bg-gray-800 rounded hover:bg-gray-700 dark:hover:bg-gray-600 focus:bg-gray-700 dark:focus:bg-gray-600 focus:outline-none">
-            <%= link_to 'View', rent_items_path(rent_type: 'Bicycle')%>
-          </div>
+    <% @rent_item_types.each do |item_type| %>
+      <%= link_to rent_items_path(rent_type: item_type), class: 'flex flex-col items-center justify-center max-w-sm mx-auto homepage-rent-type' do %>
+        <div class="w-full h-64 bg-gray-300 bg-center bg-cover rounded-lg shadow-md" style="background-image: url(<%= asset_path 'cards/bicycle.jpg'%>)"></div>
+        <div class="w-56 -mt-10 overflow-hidden bg-white rounded-lg shadow-lg md:w-64 dark:bg-gray-800 text-gray-800 dark:text-white current-rent-type">
+          <h3 class="py-2 font-bold tracking-wide text-center uppercase"><%= item_type %></h3>
         </div>
-      </div>
-    </div>
-    <div class="flex flex-col items-center justify-center max-w-sm mx-auto">
-      <div class="w-full h-64 bg-gray-300 bg-center bg-cover rounded-lg shadow-md" style="background-image: url(<%= asset_path 'cards/skuter.jpg'%>)"></div>
-      <div class="w-56 -mt-10 overflow-hidden bg-white rounded-lg shadow-lg md:w-64 dark:bg-gray-800">
-        <h3 class="py-2 font-bold tracking-wide text-center text-gray-800 uppercase dark:text-white">Electric Scooter</h3>
-        <div class="flex items-center justify-between px-3 py-2 bg-gray-200 dark:bg-gray-700">
-          <div class="px-2 py-1 text-xs font-semibold text-white uppercase transition-colors duration-200 transform bg-gray-800 rounded hover:bg-gray-700 dark:hover:bg-gray-600 focus:bg-gray-700 dark:focus:bg-gray-600 focus:outline-none">
-            <%= link_to 'View', rent_items_path(rent_type: 'Electric Scooter')%>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="flex flex-col items-center justify-center max-w-sm mx-auto">
-      <div class="w-full h-64 bg-gray-300 bg-center bg-cover rounded-lg shadow-md" style="background-image: url(<%= asset_path 'cards/summer.jpg'%>)"></div>
-      <div class="w-56 -mt-10 overflow-hidden bg-white rounded-lg shadow-lg md:w-64 dark:bg-gray-800">
-        <h3 class="py-2 font-bold tracking-wide text-center text-gray-800 uppercase dark:text-white">Summer Equipment</h3>
-        <div class="flex items-center justify-between px-3 py-2 bg-gray-200 dark:bg-gray-700">
-          <div class="px-2 py-1 text-xs font-semibold text-white uppercase transition-colors duration-200 transform bg-gray-800 rounded hover:bg-gray-700 dark:hover:bg-gray-600 focus:bg-gray-700 dark:focus:bg-gray-600 focus:outline-none">
-            <%= link_to 'View', rent_items_path(rent_type: 'Summer Equipment')%>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="flex flex-col items-center justify-center max-w-sm mx-auto">
-      <div class="w-full h-64 bg-gray-300 bg-center bg-cover rounded-lg shadow-md" style="background-image: url(<%= asset_path 'cards/winter1.jpg'%>)"></div>
-      <div  class="w-56 -mt-10 overflow-hidden bg-white rounded-lg shadow-lg md:w-64 dark:bg-gray-800">
-        <h3 class="py-2 font-bold tracking-wide text-center text-gray-800 uppercase dark:text-white">Winter Equipment</h3>
-        <div class="flex items-center justify-between px-3 py-2 bg-gray-200 dark:bg-gray-700">
-          <div class="px-2 py-1 text-xs font-semibold text-white uppercase transition-colors duration-200 transform bg-gray-800 rounded hover:bg-gray-700 dark:hover:bg-gray-600 focus:bg-gray-700 dark:focus:bg-gray-600 focus:outline-none">
-            <%= link_to 'View', rent_items_path(rent_type: 'Winter Equipment')%>
-          </div>
-        </div>
-      </div>
-    </div>
+      <% end %>
+    <% end %>
   </div>
   <div class="container mx-auto mt-48 px-4 lg:px-20">
     <div class="w-full p-8 mb-4 md:px-12 lg:w-9/12 lg:pl-20 lg:pr-40 mr-auto rounded-2xl shadow-2xl">
@@ -88,14 +49,14 @@
       </div>
       <div class="grid grid-cols-1 gap-5 md:grid-cols-2 mt-5">
         <%= form_with model: @contact, url: "create_contact" do |f|%>
-              <%= f.text_field :full_name, require: true, class:"w-full text-gray-100 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline bg-indigo-100  transition-colors duration-200 transform hover:bg-gray-700 dark:hover:bg-gray-600 focus:bg-gray-700 dark:focus:bg-gray-600", placeholder:'Full Name*', type: 'Text'%>
-              <%= f.email_field :email, require: true, class:"w-full text-gray-100 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline bg-indigo-100  transition-colors duration-200 transform hover:bg-gray-700 dark:hover:bg-gray-600 focus:bg-gray-700 dark:focus:bg-gray-600", placeholder:'Email*', type: 'Text'%>
+              <%= f.text_field :full_name, require: true, class:"w-full mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline bg-gray-100  transition-colors duration-200 transform hover:bg-gray-200 dark:hover:bg-gray-600", placeholder:'Full Name*', type: 'Text'%>
+              <%= f.email_field :email, require: true, class:"w-full mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline bg-gray-100  transition-colors duration-200 transform hover:bg-gray-200 dark:hover:bg-gray-600 ", placeholder:'Email*', type: 'Text'%>
             </div>
             <div class="my-4">
-              <%= f.text_area :message, required: true, class:"w-full text-gray-100 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline bg-indigo-100  transition-colors duration-200 transform hover:bg-gray-700 dark:hover:bg-gray-600 focus:bg-gray-700 dark:focus:bg-gray-600", placeholder:'Your Message *', type: 'Text'%>
+              <%= f.text_area :message, required: true, class:"w-full mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline bg-gray-100  transition-colors duration-200 transform hover:bg-gray-200 dark:hover:bg-gray-600", placeholder:'Your Message *', type: 'Text'%>
             </div>
             <div class="my-2 w-70 lg:w-1/4">
-              <%= f.submit 'Send Message', class:'uppercase text-sm font-bold tracking-wide bg-green-600 text-gray-100 p-3 rounded-lg w-full focus:shadow-outline transition-colors duration-200  hover:bg-gray-700 dark:hover:bg-gray-200 focus:bg-gray-700 dark:focus:bg-gray-600'%>
+              <%= f.submit 'Send Message', class:'uppercase text-sm font-bold tracking-wide bg-green-600 text-gray-100 p-3 rounded-lg w-full focus:shadow-outline transition-colors duration-200  hover:bg-green-700 dark:hover:bg-gray-200'%>
             </div>
         <% end %>
       </div>
@@ -121,21 +82,21 @@
     </div>
 </div>
 <footer>
-  <div class="relative mt-16 bg-green-400 focus:shadow-outline focus:outline-none">
+  <div class="relative mt-16 bg-green-600 text-white focus:shadow-outline focus:outline-none">
     <div class="px-4 pt-12 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
-      <div class="grid gap-16 row-gap-10 mb-8 lg:grid-cols-6">
+      <div class="w-full flex justify-between">
         <div class="md:max-w-md lg:col-span-2">
-          <span class="ml-2 text-xl font-bold tracking-wide text-gray-100 uppercase">
-            <%= link_to 'RYDER', root_path, class:'text-gray-900 shadow'%>
+          <span class="ml-2 text-xl font-bold tracking-wide uppercase">
+            <%= link_to 'RYDER', root_path %>
           </span>
         </div>
-        <div class="grid grid-cols-2 gap-5 row-gap-8 lg:col-span-4 md:grid-cols-4">
+        <div class="w-4/12 flex justify-between pr-6 mb-3">
           <div>
             <p class="font-semibold tracking-wide text-teal-accent-400">
               Go to
             </p>
             <div class="mt-2 space-y-2">
-              <%= link_to "About Us", about_path, class:"transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400"%>
+              <%= link_to "About Us", about_path, class:"transition-colors duration-300 text-deep-purple-50 "%>
             </div>
           </div>
           <div>
@@ -157,13 +118,13 @@
           </div>
         </div>
       </div>
-      <div class="flex flex-col justify-between pt-5 pb-10 border-t border-deep-purple-accent-200 sm:flex-row">
-        <p class="text-sm text-gray-900">
+      <div class="flex flex-col justify-between pt-5 pb-10 border-t border-gray-400 sm:flex-row">
+        <p class="text-sm ">
           © Copyright 2021 Ryder, All rights reserved.
         </p>
         <div class="flex items-center mt-4 space-x-4 sm:mt-0">
           <%= link_to "https://www.facebook.com/profile.php?id=100074592610559", class:"mx-2", aria: { label:"Facebook" } do %>
-            <svg class="w-5 h-5 text-gray-700 fill-current dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-400" xmlns="https://www.facebook.com/profile.php?id=100074592610559" viewBox="0 0 512 512">
+            <svg class="w-5 h-5  fill-current dark:text-white" xmlns="https://www.facebook.com/profile.php?id=100074592610559" viewBox="0 0 512 512">
               <path d="M426.8 64H85.2C73.5 64 64 73.5 64 85.2v341.6c0 11.7 9.5 21.2 21.2 21.2H256V296h-45.9v-56H256v-41.4c0-49.6 34.4-76.6 78.7-76.6 21.2 0 44 1.6 49.3 2.3v51.8h-35.3c-24.1 0-28.7 11.4-28.7 28.2V240h57.4l-7.5 56H320v152h106.8c11.7 0 21.2-9.5 21.2-21.2V85.2c0-11.7-9.5-21.2-21.2-21.2z"/>
             </svg>
           <% end %>
