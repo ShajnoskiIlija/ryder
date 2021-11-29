@@ -4,8 +4,8 @@
       <div class="md:flex md:flex-row items-center">
           <div class="flex justify-between ">
             <!-- Logo-->
-            <div class="text-xl font-semibold text-green-400">
-              <%= link_to "RYDER", root_path, class:"text-2xl font-bold text-green-800 dark:text-white lg:text-3xl hover:text-blue-700 dark:hover:text-gray-300"%>
+            <div class="text-xl font-semibold text-green-600">
+              <%= link_to "RYDER", root_path, class:"text-2xl font-bold text-green-600 dark:text-white lg:text-3xl hover:text-green-700 dark:hover:text-gray-300"%>
             </div>
             <!-- Mobile menu button -->
             <div class="flex md:hidden">
@@ -20,14 +20,14 @@
           <div data-dropdown-target="dropdown">
             <div class="flex flex-col md:flex-row md:items-center md:mx-8">
               <% if user_signed_in? %>
-                <%= link_to "Rentals", rent_items_path, class:"px-2 py-1 mx-2 mt-2 text-sm font-medium text-gray-900 transition-colors duration-200 transform rounded-md md:mt-0 dark:text-gray-800 hover:bg-gray-400 dark:hover:bg-gray-300"%>
-                <%= link_to "Dashboard", dashboard_root_path, class:"px-2 py-1 mx-2 mt-2 text-sm font-medium text-gray-900 transition-colors duration-200 transform rounded-md md:mt-0 dark:text-gray-200 hover:bg-gray-400 dark:hover:bg-gray-300"%>
-                <%= link_to "About us", about_path,  class:"px-2 py-1 mx-2 mt-2 text-sm font-medium text-gray-900 transition-colors duration-200 transform rounded-md md:mt-0 dark:text-gray-200 hover:bg-gray-400 dark:hover:bg-gray-300"%>
-                <%= link_to "Sign out", destroy_user_session_path, method: :delete, class:"px-2 py-1 mx-2 mt-2 text-sm font-medium text-gray-900 transition-colors duration-200 transform rounded-md md:mt-0 dark:text-gray-200 hover:bg-gray-700 dark:hover:bg-gray-300"%>
+                <%= link_to "Rentals", rent_items_path, class:"px-2 py-1 mx-2 mt-2 text-sm font-medium text-gray-900 transition-colors duration-200 transform rounded-md md:mt-0 dark:text-gray-800 dark:hover:bg-gray-300"%>
+                <%= link_to "Dashboard", dashboard_root_path, class:"px-2 py-1 mx-2 mt-2 text-sm font-medium text-gray-900 transition-colors duration-200 transform rounded-md md:mt-0 dark:text-gray-200 dark:hover:bg-gray-300"%>
+                <%= link_to "About us", about_path,  class:"px-2 py-1 mx-2 mt-2 text-sm font-medium text-gray-900 transition-colors duration-200 transform rounded-md md:mt-0 dark:text-gray-200 dark:hover:bg-gray-300"%>
+                <%= link_to "Sign out", destroy_user_session_path, method: :delete, class:"px-2 py-1 mx-2 mt-2 text-sm font-medium text-gray-900 transition-colors duration-200 transform rounded-md md:mt-0 dark:text-gray-200 dark:hover:bg-gray-300"%>
                 <% else %>
-                <%= link_to "Log in", new_user_session_path, class:"px-2 py-1 mx-2 mt-2 text-sm font-medium text-gray-900 transition-colors duration-200 transform rounded-md md:mt-0 dark:text-gray-200 hover:bg-gray-400 dark:hover:bg-gray-300"%>
-                <%= link_to "Sign up", new_user_registration_path, class:"px-2 py-1 mx-2 mt-2 text-sm font-medium text-gray-900 transition-colors duration-200 transform rounded-md md:mt-0 dark:text-gray-200 hover:bg-gray-400 dark:hover:bg-gray-300"%>
-                <%= link_to "About us", about_path,  class:"px-2 py-1 mx-2 mt-2 text-sm font-medium text-gray-900 transition-colors duration-200 transform rounded-md md:mt-0 dark:text-gray-200 hover:bg-gray-400 dark:hover:bg-gray-400"%>
+                <%= link_to "Log in", new_user_session_path, class:"px-2 py-1 mx-2 mt-2 text-sm font-medium text-gray-900 transition-colors duration-200 transform rounded-md md:mt-0 dark:text-gray-200  dark:hover:bg-gray-300"%>
+                <%= link_to "Sign up", new_user_registration_path, class:"px-2 py-1 mx-2 mt-2 text-sm font-medium text-gray-900 transition-colors duration-200 transform rounded-md md:mt-0 dark:text-gray-200dark:hover:bg-gray-300"%>
+                <%= link_to "About us", about_path,  class:"px-2 py-1 mx-2 mt-2 text-sm font-medium text-gray-900 transition-colors duration-200 transform rounded-md md:mt-0 dark:text-gray-200  dark:hover:bg-gray-400"%>
               <% end %>
             </div>
           </div>

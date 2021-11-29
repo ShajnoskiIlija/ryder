@@ -3,6 +3,7 @@
 class PagesController < ApplicationController
   def home
     @contact = Contact.new
+    @rent_item_types = RentItem.select('MIN(item_type) as item_type').group(:item_type).collect(&:item_type)
   end
 
   def about; end

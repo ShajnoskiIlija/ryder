@@ -2,27 +2,35 @@
   <div class="container mx-auto h-full flex flex-1 justify-center items-center">
     <div class="w-full max-w-lg">
       <div class="leading-loose">
-        <div class="max-w-sm m-4 p-10 bg-white bg-opacity-25 rounded shadow-xl">
+        <div class="max-w-sm p-10 bg-white rounded shadow-xl">
           <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-            <p class="text-white text-center text-lg font-bold">Please Log in</p>
+            <p class="text-gray-800 text-center text-lg font-bold">Please Log in</p>
             <div class="mt-2">
-              <%= f.label :email, class:"block text-sm text-white"%>
-              <%= f.email_field :email, class:"w-full px-5 py-1 text-gray-700 bg-gray-300 rounded focus:outline-none focus:bg-white", placeholder:"Your Email", autocomplete: "email" %>
+              <%= f.email_field :email, class:"w-full p-3 text-gray-800 bg-gray-100 hover:bg-gray-200 focus:bg-gray-200 rounded-lg focus:outline-none", placeholder:"Your Email", autocomplete: "email" %>
             </div>
             <div class="mt-2">
-              <%= f.label :password, class:"block  text-sm text-white"%>
-              <%= f.password_field :password, class:"w-full px-5 py-1 text-gray-700 bg-gray-300 rounded focus:outline-none focus:bg-white", placeholder:"Password", autocomplete: "current-password" %>
+              <%= f.password_field :password, class:"w-full p-3 text-gray-800 bg-gray-100 hover:bg-gray-200 focus:bg-gray-200 rounded-lg focus:outline-none", placeholder:"Password", autocomplete: "current-password" %>
             </div>
             <% if devise_mapping.rememberable? %>
-            <div class="field mb-2">
+            <div class="field mb-2 text-gray-800">
               <%= f.check_box :remember_me %>
               <%= f.label :remember_me %>
             </div>
             <% end %>
-            <div class="mt-4 items-center flex justify-between">
-              <%= f.submit "Log in", class:"px-4 py-1 text-white font-light tracking-wider bg-gray-900 hover:bg-gray-800 rounded"%>
+            <div class="items-center flex justify-end">
+              <%= f.submit "Log in", class:"px-4 py-1 text-white font-semibold tracking-wider bg-green-600 hover:bg-green-700 rounded-lg"%>
             </div>
-              <%= render "devise/shared/links" %>
+             <div class="flex items-center justify-center mt-3">
+                <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+                  <%= link_to "Sign up", new_registration_path(resource_name) %>
+                <% end %>
+
+                <span class="mx-2 text-gray-300"> | </span>
+
+                <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+                  <%= link_to "Forgot your password?", new_password_path(resource_name) %>
+                <% end %>
+             </div>
           <% end %>
         </div>
       </div>

@@ -1,0 +1,17 @@
+<div class="w-full p-4 md:mb-0 mb-6 flex flex-col justify-center items-center mx-auto">
+    <div class="bg-gray-300 h-56 w-full rounded-lg shadow-md bg-cover bg-center" style="background-image: url(<%= image_path('cards/for_rent.jpg') %>)"></div>
+    <div class=" w-11/12 bg-white -mt-6 shadow-lg rounded-lg overflow-hidden pt-5">
+    <div class="px-5 header-content inline-flex mb-2">
+        <div class="category-title flex-1 text-xs uppercase tracking-wide font-semibold text-green-600"> <%= item.item_type %></div>
+    </div>
+    <div class="title-post font-medium"></div>
+    <div class="summary-post text-base text-justify">
+        <div class="px-5">
+        <p class="text-base"> Location: <span class="font-semibold"> <%= item.location %> </span> </p>
+        <p> Condition:  <span class="font-semibold"> <%= item.condition %> </span> </p>
+        <p> Suitable for age:  <span class="font-semibold"> <%= item.for_age %> </span> </p>
+        </div>
+        <%= link_to 'View', item, class: 'w-full mt-4 block p-2 text-sm bg-green-600 hover:bg-green-700 text-white font-semibold text-center' %>
+    </div>
+    </div>
+</div>
