@@ -12,6 +12,7 @@ module Dashboard
       @rent_request.user_id = current_user.id
       if @rent_request.save
         redirect_to rent_items_path, notice: 'Succesfully requested a Rent'
+        @rent_request.rent_item.available = false
       else
         redirect_to root_path, alert: 'There was a problem, please try again'
       end
@@ -22,7 +23,7 @@ module Dashboard
       if @rent_request.update(rent_request_params)
         redirect_to dashboard_rent_requests_path, notice: 'Rent Request successfully updated'
       else
-        redirect_to dashboard_rent_requests_path, alert:  'Rent Request was not updated '
+        redirect_to dashboard_rent_requests_path, alert: 'Rent Request was not updated '
       end
     end
 
