@@ -26,7 +26,7 @@ describe Dashboard::RentRequestsController, type: :controller do
     end
 
     context 'with invalid attributes' do
-      it 'doesnt create new request' do
+      it "doesn't create new request" do
         expect do
           post :create,
                params: { rent_request: { status: '' } }

@@ -16,6 +16,8 @@ describe Dashboard::RentItemsController, type: :controller do
   end
 
   describe 'POST create rent_item' do
+    let(:rent_request) { create(:rent_request) }
+
     context 'with valid attributes' do
       it 'creates new rent_item' do
         expect do
