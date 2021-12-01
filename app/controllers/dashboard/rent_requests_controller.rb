@@ -11,11 +11,7 @@ module Dashboard
       @rent_request = RentRequest.new(rent_request_params)
       @rent_request.user_id = current_user.id
       if @rent_request.save
-        @rent_request.rent_item.update(available: false) if @rent_request.status == ('accepted')
-        @rent_request.rent_item.update(available: false)
         redirect_to rent_items_path, notice: 'Succesfully requested a Rent'
-      elsif @rent_request.status.update('rejected')
-        @rent_request.rent_item.update(available: true)
       else
         redirect_to root_path, alert: 'There was a problem, please try again'
       end
@@ -24,6 +20,7 @@ module Dashboard
     def update
       @rent_request = RentRequest.find(params[:id])
       if @rent_request.update(rent_request_params)
+        @rent_request.rent_item.update(available: false) if @rent_request.status == 'accepted'
         redirect_to dashboard_rent_requests_path, notice: 'Rent Request successfully updated'
       else
         redirect_to dashboard_rent_requests_path, alert: 'Rent Request was not updated '

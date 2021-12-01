@@ -45,6 +45,18 @@ describe Dashboard::RentRequestsController, type: :controller do
       end
     end
 
+    context 'when true' do
+      it 'passes' do
+        expect(available: true).to be_truthy if rent_request.status == 'rejected'
+      end
+    end
+
+    context 'when false' do
+      it 'passes' do
+        expect(available: false).to be_falsey if rent_request.status == 'accepted'
+      end
+    end
+
     context 'with invalid attributes' do
       it 'does not updates request' do
         put :update, params: { id: rent_request.id, rent_request: { status: '' } }
