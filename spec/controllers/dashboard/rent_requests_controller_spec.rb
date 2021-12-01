@@ -46,13 +46,13 @@ describe Dashboard::RentRequestsController, type: :controller do
     end
 
     context 'when true' do
-      it 'passes' do
+      it 'is  true' do
         expect(available: true).to be_truthy if rent_request.status == 'rejected'
       end
     end
 
     context 'when false' do
-      it 'passes' do
+      it 'is false' do
         expect(available: false).to be_falsey if rent_request.status == 'accepted'
       end
     end
