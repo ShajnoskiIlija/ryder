@@ -3,9 +3,9 @@
   }
 
   .pagy-nav .page a {
-    @apply block px-3 py-2 mx-1 font-medium text-gray-700 bg-white rounded-md;
+    @apply block px-3 py-2 mx-1 font-medium text-gray-900 bg-white rounded-md;
     &:hover{
-      @apply bg-indigo-500 text-white;
+      @apply bg-green-600 text-white;
     }
   }
 
@@ -18,8 +18,8 @@
   }
 
   .pagy-nav .page.active {
-    @apply px-3 py-2 mx-1 font-medium bg-indigo-500 text-white rounded-md;
+    @apply px-3 py-2 mx-1 font-medium bg-green-600 text-white rounded-md;
     &:hover {
-      @apply bg-indigo-500 text-white;
+      @apply bg-green-600 text-white;
     }
   }
