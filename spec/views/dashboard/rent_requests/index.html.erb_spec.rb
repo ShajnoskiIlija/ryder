@@ -18,8 +18,8 @@ describe 'dashboard/rent_requests/index.html.erb', type: :view do
                                   rent_request.user.first_name,
                                   rent_request.user.phone_number,
                                   rent_request.user.last_name,
-                                  rent_request.user.address,
                                   rent_request.status.capitalize,
+                                  rent_request.rent_item.location,
                                   'From',
                                   'Phone',
                                   'Requesting')

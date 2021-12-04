@@ -3,7 +3,9 @@
 class RentItemsController < ApplicationController
   before_action :scope_rent_items, only: :index
 
-  def index; end
+  def index
+    @rent_items = RentItem.where.not(user_id: current_user.id).where(available: true)
+  end
 
   def show
     @rent_item = RentItem.find(params[:id])
