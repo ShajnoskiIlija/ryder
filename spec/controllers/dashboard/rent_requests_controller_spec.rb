@@ -46,7 +46,7 @@ describe Dashboard::RentRequestsController, type: :controller do
     end
 
     context 'when true' do
-      it 'is  true' do
+      it 'is true' do
         expect(available: true).to be_truthy if rent_request.status == 'rejected'
       end
     end
