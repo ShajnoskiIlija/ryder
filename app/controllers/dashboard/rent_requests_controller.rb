@@ -8,7 +8,7 @@ module Dashboard
     end
 
     def create
-      @rent_request = RentRequest.new(rent_request_params)
+      @rent_request = RentRequest.new(create_rent_request_params)
       @rent_request.user_id = current_user.id
       if @rent_request.save
         redirect_to rent_items_path, notice: 'Succesfully requested a Rent'
@@ -19,8 +19,9 @@ module Dashboard
 
     def update
       @rent_request = RentRequest.find(params[:id])
-      if @rent_request.update(rent_request_params)
+      if @rent_request.update(update_rent_request_params)
         @rent_request.rent_item.update(available: false) if @rent_request.status == 'accepted'
+        @rent_request.rent_item.update(available: true) if @rent_request.status == 'rejected'
         redirect_to dashboard_rent_requests_path, notice: 'Rent Request successfully updated'
       else
         redirect_to dashboard_rent_requests_path, alert: 'Rent Request was not updated '
@@ -29,8 +30,12 @@ module Dashboard
 
     private
 
-    def rent_request_params
-      params.require(:rent_request).permit(:status, :user_id, :rent_item_id)
+    def create_rent_request_params
+      params.require(:rent_request).permit(:rent_item_id)
+    end
+
+    def update_rent_request_params
+      params.require(:rent_request).permit(:status)
     end
 
     def find_rent_request
