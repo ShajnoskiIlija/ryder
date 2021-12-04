@@ -2,9 +2,10 @@
 
 class RentItemsController < ApplicationController
   before_action :scope_rent_items, only: :index
+  include Pagy::Backend
 
   def index
-    @rent_items = RentItem.where.not(user_id: current_user.id).where(available: true)
+    @pagy, @rent_items = pagy(RentItem.where.not(user_id: current_user.id).where(available: true))
   end
 
   def show

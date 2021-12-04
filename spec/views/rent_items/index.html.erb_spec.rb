@@ -7,6 +7,7 @@ describe 'rent_items/index.html.erb', type: :view do
 
   before do
     assign(:rent_items, [item])
+    assign(:pagy, Pagy.new(count: 4, page: 1))
   end
 
   it 'displays titles' do
