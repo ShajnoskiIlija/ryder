@@ -96,7 +96,7 @@ describe Dashboard::RentRequestsController, type: :controller do
         expect(rent_request.status).to eq('rejected')
       end
 
-      it 'rent item should  be available' do
+      it 'rent item should be available' do
         rent_request.rent_item.reload
         expect(rent_request.rent_item.available).to eq(true)
       end
