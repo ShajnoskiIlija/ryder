@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   root to: "pages#home"
 
   resources :rent_items, only: %i[index show create edit update destroy]
+  resources :image_elements, only: %i[index create update destroy]
 
   namespace :dashboard do
     resources :rent_items
