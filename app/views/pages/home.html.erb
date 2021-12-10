@@ -2,12 +2,12 @@
   <div id="moka-w1wgf" class="items-center justify-center w-full p-8 flex flex-col ">
     <div id="moka-ix3cs" class="bg-gray-200 items-center justify-center md:w-1/2 w-full shadow-md p-5 h-auto rounded-lg blur-3 bg-opacity-25 flex flex-col col-span-12 ">
       <h4 class="w-48 border-t-4 border-solid border-gren-600 h-20" id="moka-uuij0"></h4>
-      <h4 class="text-orange-300    text-2xl" id="moka-8q3tt" style="font-family: Abel;">Welcome</h4>
-      <h2 class="text-gray-900 text-5xl text-center mt-2 mb-20" id="moka-cqg7a"> Start here and now</h2>
+      <h4 class="text-orange-300    text-2xl" id="moka-8q3tt" style="font-family: Abel"><%=t('.welcome')%></h4>
+      <h2 class="text-gray-900 text-5xl text-center mt-2 mb-20" id="moka-cqg7a"> <%=t('.message_two')%></h2>
         <% if user_signed_in? %>
-          <%= link_to "View Rents", dashboard_root_path, class:"hover:bg-green-700 bg-green-600 text-white text-center w-56 p-3 text-2xl font-bold rounded-lg", style:"font-family: Barlow"  %>
+          <%= link_to t('.view_rents'), dashboard_root_path, class:"hover:bg-green-700 bg-green-600 text-white text-center w-56 p-3 text-2xl font-bold rounded-lg", style:"font-family: Barlow"  %>
         <% else %>
-          <%= link_to "Get Started", new_user_registration_path, class:"hover:bg-green-700 bg-green-600 text-white text-center w-56 p-3 text-2xl font-bold rounded-lg", style:"font-family: Barlow"  %>
+          <%= link_to t('.get_started'), new_user_registration_path, class:"hover:bg-green-700 bg-green-600 text-white text-center w-56 p-3 text-2xl font-bold rounded-lg", style:"font-family: Barlow"  %>
         <% end %>
     </div>
   </div>
@@ -29,7 +29,7 @@
         </svg>
         <span class="relative">The</span>
       </span>
-      Rentals that will fit your needs
+      <%= t('.text_one')%>
     </h2>
   </div>
     <div class="grid gap-5 row-gap-5 mb-8 lg:grid-cols-4 sm:grid-cols-2">
@@ -45,35 +45,35 @@
   <div class="container mx-auto mt-48 px-4 lg:px-20">
     <div class="w-full p-8 mb-4 md:px-12 lg:w-9/12 lg:pl-20 lg:pr-40 mr-auto rounded-2xl shadow-2xl">
       <div class="flex">
-        <h1 class="font-bold uppercase text-5xl">Send us a <br /> message</h1>
+        <h1 class="font-bold uppercase text-5xl"><%=t('.send_us_a')%> <br /> <%=t('.message')%></h1>
       </div>
       <div class="grid grid-cols-1 gap-5 md:grid-cols-2 mt-5">
         <%= form_with model: @contact, url: "create_contact" do |f|%>
-              <%= f.text_field :full_name, require: true, class:"w-full mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline bg-gray-100  transition-colors duration-200 transform hover:bg-gray-200 dark:hover:bg-gray-600", placeholder:'Full Name*', type: 'Text'%>
-              <%= f.email_field :email, require: true, class:"w-full mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline bg-gray-100  transition-colors duration-200 transform hover:bg-gray-200 dark:hover:bg-gray-600 ", placeholder:'Email*', type: 'Text'%>
+              <%= f.text_field :full_name, require: true, class:"w-full mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline bg-gray-100  transition-colors duration-200 transform hover:bg-gray-200 dark:hover:bg-gray-600", placeholder: t('.name'), type: 'Text'%>
+              <%= f.email_field :email, require: true, class:"w-full mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline bg-gray-100  transition-colors duration-200 transform hover:bg-gray-200 dark:hover:bg-gray-600 ", placeholder: t('.email'), type: 'Text'%>
             </div>
             <div class="my-4">
-              <%= f.text_area :message, required: true, class:"w-full mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline bg-gray-100  transition-colors duration-200 transform hover:bg-gray-200 dark:hover:bg-gray-600", placeholder:'Your Message *', type: 'Text'%>
+              <%= f.text_area :message, required: true, class:"w-full mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline bg-gray-100  transition-colors duration-200 transform hover:bg-gray-200 dark:hover:bg-gray-600", placeholder: t('.message_six'), type: 'Text'%>
             </div>
             <div class="my-2 w-70 lg:w-1/4">
-              <%= f.submit 'Send Message', class:'uppercase text-sm font-bold tracking-wide bg-green-600 text-gray-100 p-3 rounded-lg w-full focus:shadow-outline transition-colors duration-200  hover:bg-green-700 dark:hover:bg-gray-200'%>
+              <%= f.submit t('.send_message'), class:'uppercase text-sm font-bold tracking-wide bg-green-600 text-gray-100 p-3 rounded-lg w-full focus:shadow-outline transition-colors duration-200  hover:bg-green-700 dark:hover:bg-gray-200'%>
             </div>
         <% end %>
       </div>
       <div class="w-full lg:-mt-96 lg:w-2/6 px-8 py-12 ml-auto bg-green-600 rounded-2xl">
         <div class="flex flex-col text-gray-100">
-          <h1 class="font-bold uppercase text-4xl my-4">Contact us </h1>
-          <p class="text-gray-200">Here you can contact us, share your needs and  suggestions.
+          <h1 class="font-bold uppercase text-4xl my-4"> <%= t('.contact_us')%></h1>
+          <p class="text-gray-200"> <%= t('.message_one')%>
           </p>
           <div class="flex my-4 w-2/3 lg:w-1/2">
             <div class="flex flex-col">
-              <h2 class="text-2xl">Main Office</h2>
+              <h2 class="text-2xl"><%= t('.main_office')%></h2>
               <p class="text-gray-200">333-555 Radozda, Struga, Macedonia</p>
             </div>
           </div>
           <div class="flex my-4 w-2/3 lg:w-1/2">
             <div class="flex flex-col">
-              <h2 class="text-2xl">Call Us</h2>
+              <h2 class="text-2xl"><%= t('.call_us')%></h2>
               <p class="text-gray-200"><%= link_to 'Tel: 222-333-222', '#'%></p>
             </div>
           </div>
@@ -93,26 +93,26 @@
         <div class="w-4/12 flex justify-between pr-6 mb-3">
           <div>
             <p class="font-semibold tracking-wide text-teal-accent-400">
-              Go to
+              <%= t('.go_to')%>
             </p>
             <div class="mt-2 space-y-2">
-              <%= link_to "About Us", about_path, class:"transition-colors duration-300 text-deep-purple-50 "%>
+              <%= link_to t('.about_us'), about_path, class:"transition-colors duration-300 text-deep-purple-50 "%>
             </div>
           </div>
           <div>
-            <p class="font-semibold tracking-wide text-teal-accent-400">Categories</p>
+            <p class="font-semibold tracking-wide text-teal-accent-400"><%= t('.categories')%></p>
             <ul class="mt-2 space-y-2">
               <li>
-                <%= link_to "Bicycles", rent_items_path(rent_type: 'Bicycle'), class:"transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400"%>
+                <%= link_to  t('.bicycles'), rent_items_path(rent_type: 'Bicycle'), class:"transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400"%>
               </li>
               <li>
-                <%= link_to "Electric Scooters", rent_items_path(rent_type: 'Electric Scooter'), class:"transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400"%>
+                <%= link_to t('.electric_scooters'), rent_items_path(rent_type: 'Electric Scooter'), class:"transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400"%>
               </li>
               <li>
-                <%= link_to "Summer Equipment", rent_items_path(rent_type: 'Summer Equipment'), class:"transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400"%>
+                <%= link_to t('.summer_equipment'), rent_items_path(rent_type: 'Summer Equipment'), class:"transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400"%>
               </li>
               <li>
-                <%= link_to "Winter Equipment", rent_items_path(rent_type: 'Winter Equipment'), class:"transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400"%>
+                <%= link_to t('.winter_equipment'), rent_items_path(rent_type: 'Winter Equipment'), class:"transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400"%>
               </li>
             </ul>
           </div>

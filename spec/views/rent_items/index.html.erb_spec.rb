@@ -10,9 +10,9 @@ describe 'rent_items/index.html.erb', type: :view do
     assign(:pagy, Pagy.new(count: 4, page: 1))
   end
 
-  it 'displays titles' do
+  it 'displays localized title' do
     render
-    expect(rendered).to include('Condition:', 'Location:', "You're looking for:")
+    expect(rendered).to include(t('rent_items.index.looking_for'))
   end
 
   it 'displays a cards' do

@@ -1,33 +1,120 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at https://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  devise:
+    sessions:
+      new:
+        log_in_message: 'Please log in'
+        log_in: 'Log In'
+        sign_up: "Sign Up"
+        forgot: 'Forgot your password?'
+
+    registration:
+      new:
+        acc_message: 'Create an account for free'
+        acc_second: 'Free forever. No payment needed.'
+        sign_up: 'Sign Up'
+        acc_third: 'Already have an account?'
+        char: 'Characters minimum'
+        name: 'Име'
+        last_name: 'Last Name'
+        address: 'Address'
+        email: 'E-mail'
+        mob: 'Mobile +356 555 654'
+        pw: 'New Password'
+        new_pw: 'Confirm your password'
+
+  layouts:
+    header:
+      rentals: "Rentals"
+      dashboard: 'Dashboard'
+      about_us: "About Us"
+      log_in: 'Log In'
+      sign_up: 'Sign Up'
+      sign_out: 'Sign Out'
+      logged_in_as: 'Logged in as:'
+
+  pages:
+    home:
+     view_rents: 'View Rents'
+     get_started: 'Get Started'
+     text_one: 'Rentals that will fit your needs'
+     send_us_a: 'Send Us a'
+     message: 'Message'
+     send_message: 'Send Message'
+     contact_us: 'Contact Us'
+     message_one: 'Here you can contact us, share your needs and  suggestions.'
+     main_office: 'Main Office'
+     call_us: 'Call Us'
+     go_to: 'Go to:'
+     bicycles: 'Bicycles'
+     electric_scooters: 'Electric Scooters'
+     summer_equipment: 'Summer Equipment'
+     winter_equipment: 'Winter Equipment'
+     welcome: 'Welcome'
+     message_two: 'Start Here and Now'
+     categories: 'Categories'
+     name: 'Full Name'
+     email: 'E-mail'
+     message_six: 'Your message'
+
+    about:
+     who_are_we: 'Who are we?'
+     message_about: 'Ryder helps active people connect with trusted bike owners. Ryder is a rental and sharin platform to connect owners with active people looking to rent or borrow. Through our platform, owners lists their bikes, electric scooters, summer and winter equipment, renters search for a ride in whatever area they want, and complete the rental request easily through our patform.'
+     grow_together: 'Help us to grow together'
+     grow_together_message: 'Help us to grow, start renting on our platform, together we can go further'
+     start_here: 'Start Here'
+
+  rent_items:
+    index:
+      looking_for: 'You are looking for:'
+      view: 'View'
+      location: 'Location'
+      condition: 'Condition'
+      for_age: 'Suitable for:'
+
+    rent_item:
+      location: 'Location'
+      condition: 'Condition'
+      for_age: 'Suitable for:'
+      view: 'View'
+      looking_for: "You're looking for:"
+
+    show:
+      call: 'Call Me'
+      owner: 'Owner:'
+      send: 'Send Request'
+      status: 'Status:'
+      for_age: 'Suitable for:'
+      available: 'Available'
+
+  dashboard:
+    dashboard:
+      home:
+        status: 'Status'
+        current_number: 'Current Number'
+        items: 'Items'
+        items_for_rent: 'Items for Rent'
+        items_for_children: 'Items for Childrens'
+        items_for_adult: 'Items for Adults'
+        bicycles: 'Bicycles'
+        electric_scooters: 'Electric Scooters'
+        summer_equipment: 'Summer Equipment'
+        winter_equipment: 'Winter Equipment'
+        rents: 'My Rents'
+        new_rents: 'Create New'
+
+      rent_items:
+        index:
+          best_for: 'Best For:'
+          status: 'Status:'
+          for_rent: 'Available'
+          taken: 'Taken'
+          edit: 'Edit'
+
+        new:
+          create: 'Create New Rent'
+
+        edit:
+          edit: 'Edit your rent'
+
+        form:
+          cancel: 'Cancel'

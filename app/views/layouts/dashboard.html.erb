@@ -67,35 +67,35 @@
                 <!-- Start Navitem -->
                 <%= link_to dashboard_root_path, class:'homepage-rent-type' do %>
                   <div class="rounded-full current-rent-type bg-gray-200 p-2  flex flex-col items-center">
-                    <span class="fas fa-chart-pie fa-sm font-bold text-center">Dashboard</span>
+                    <span class="fas fa-chart-pie fa-sm font-bold text-center"><%= t('.dashboard')%></span>
                   </div>
                 <% end %>
                 <!-- End Navitem -->
                 <!-- Start Navitem -->
                 <%= link_to edit_user_registration_path, class:'homepage-rent-type' do %>
                   <div class="rounded-full current-rent-type bg-gray-200 p-2  flex flex-col items-center">
-                    <span class="fas fa-user-circle fa-sm font-bold text-center">Account</span>
+                    <span class="fas fa-user-circle fa-sm font-bold text-center"><%= t('.account')%></span>
                   </div>
                 <% end %>
                 <!-- End Navitem -->
                 <!-- Start Navitem -->
                 <%= link_to new_dashboard_rent_item_path, class:'homepage-rent-type' do %>
                   <div class="rounded-full current-rent-type bg-gray-200 p-2  flex flex-col items-center">
-                    <span class="fas fa-biking fa-sm font-bold text-center">New Rent</span>
+                    <span class="fas fa-biking fa-sm font-bold text-center"><%= t('.new_rent')%></span>
                   </div>
                 <% end %>
                 <!-- End Navitem -->
                  <!-- Start Navitem -->
                 <%= link_to dashboard_rent_items_path, class:'homepage-rent-type' do %>
                   <div class="rounded-full current-rent-type bg-gray-200 p-2  flex flex-col items-center">
-                    <span class="fas fa-warehouse fa-sm font-bold text-center">My Rents</span>
+                    <span class="fas fa-warehouse fa-sm font-bold text-center"><%= t('.my_rent')%></span>
                   </div>
                 <% end %>
                 <!-- End Navitem -->
                 <!-- Start Navitem -->
                 <%= link_to dashboard_rent_requests_path, class:'homepage-rent-type' do %>
                   <div class="rounded-full current-rent-type bg-gray-200 p-2  flex flex-col items-center">
-                    <span class="fas fa-comment fa-sm font-bold text-center">View Requests</span>
+                    <span class="fas fa-comment fa-sm font-bold text-center"><%= t('.view_request')%></span>
                   </div>
                 <% end %>
                 <!-- End Navitem -->

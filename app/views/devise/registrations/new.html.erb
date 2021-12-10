@@ -2,41 +2,41 @@
   <div class="w-1/2 bg-cover md:block hidden" style="background-image: url(<%= asset_path 'cards/jump.jpg'%>)"></div>
   <div class="md:w-1/2 max-w-lg mx-auto my-24 px-4 py-5 shadow-none">
     <div class="text-left p-0 font-sans">
-      <h1 class=" text-gray-800 text-3xl font-medium">Create an account for free</h1>
-      <h3 class="p-1 text-gray-700">Free forever. No payment needed.</h3>
+      <h1 class=" text-gray-800 text-3xl font-medium"> <%= t('.acc_message')%></h1>
+      <h3 class="p-1 text-gray-700"> <%= t('.acc_second')%></h3>
     </div>
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|  %>
         <%= render "devise/shared/error_messages", resource: resource %>
         <div class="mt-2">
-          <%= f.text_field :first_name ,class:"block w-full p-3 rounded-lg focus:outline-none bg-gray-100 hover:bg-gray-200", placeholder:'Name', require: true %>
+          <%= f.text_field :first_name ,class:"block w-full p-3 rounded-lg focus:outline-none bg-gray-100 hover:bg-gray-200", placeholder: t('.name'), require: true %>
         </div>
         <div class="mt-2">
-          <%= f.text_field :last_name, class:"block w-full p-3 rounded-lg focus:outline-none bg-gray-100 hover:bg-gray-200", placeholder:"Last Name", require: true %>
+          <%= f.text_field :last_name, class:"block w-full p-3 rounded-lg focus:outline-none bg-gray-100 hover:bg-gray-200", placeholder:t('.last_name'), require: true %>
         </div>
         <div class="mt-2">
-          <%= f.text_field :address, class:"block w-full p-3 rounded-lg focus:outline-none bg-gray-100 hover:bg-gray-200 ", placeholder:"Address"%>
+          <%= f.text_field :address, class:"block w-full p-3 rounded-lg focus:outline-none bg-gray-100 hover:bg-gray-200 ", placeholder:t('.address')%>
         </div>
         <div class="mt-2">
-          <%= f.telephone_field :phone_number, class:"block w-full p-3 rounded-lg focus:outline-none bg-gray-100 hover:bg-gray-200 ", placeholder:"Mobile +356 555 654"%>
+          <%= f.telephone_field :phone_number, class:"block w-full p-3 rounded-lg focus:outline-none bg-gray-100 hover:bg-gray-200 ", placeholder:t('.mob')%>
         </div>
         <div class="mt-2">
-          <%= f.email_field :email, class:"block w-full p-3 rounded-lg focus:outline-none bg-gray-100 hover:bg-gray-200 ", placeholder:"john@doe.com"%>
+          <%= f.email_field :email, class:"block w-full p-3 rounded-lg focus:outline-none bg-gray-100 hover:bg-gray-200 ", placeholder:t('.email')%>
         </div>
         <div class="mt-2">
-          <%= f.password_field :password, class:"block w-full p-3 rounded-lg focus:outline-none bg-gray-100 hover:bg-gray-200 ", placeholder:"New Password"%>
+          <%= f.password_field :password, class:"block w-full p-3 rounded-lg focus:outline-none bg-gray-100 hover:bg-gray-200 ", placeholder:t('.pw')%>
           <% if @minimum_password_length %>
-            <span class="text-sm text-gray-800 italic pl-1"><%= @minimum_password_length %> characters minimum</span>
+            <span class="text-sm text-gray-800 italic pl-1"><%= @minimum_password_length %> <%= t('.char')%></span>
           <% end %>
         </div>
         <div class="mt-2">
-          <%= f.password_field :password_confirmation, class:"block w-full p-3 rounded-lg focus:outline-none bg-gray-100 hover:bg-gray-200 ", placeholder:"Please confirm your password"%>
+          <%= f.password_field :password_confirmation, class:"block w-full p-3 rounded-lg focus:outline-none bg-gray-100 hover:bg-gray-200 ", placeholder: t('.new_pw')%>
         </div>
         <div class="mt-4 flex justify-end">
-          <%= f.submit "Sign up", class:"py-3 bg-green-500 text-white rounded hover:bg-green-600 w-4/12 font-semibold" %>
+          <%= f.submit t('.sign_up'), class:"py-3 bg-green-500 text-white rounded hover:bg-green-600 w-4/12 font-semibold" %>
         </div>
       <% end %>
       <%= link_to new_user_session_path, class: "mt-6 flex justify-center" do %>
-        <span class="pb-1 border-gray-300 border-b"> Already have an account? </span>
+        <span class="pb-1 border-gray-300 border-b">  <%= t('.acc_third')%> </span>
       <% end %>
   </div>
 </div>

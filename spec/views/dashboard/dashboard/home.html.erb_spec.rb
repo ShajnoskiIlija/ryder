@@ -7,6 +7,6 @@ describe 'dashboard/dashboard/home.html.erb', type: :view do
     assign(:rented_type, ['Bicycles'])
     assign(:rented_types, ['Children'])
     render
-    expect(rendered).to include('Status:', 'Current Number:', 'Items for rent', 'Items', 'Items for Children', 'Items for Adult')
+    expect(rendered).to include(t('dashboard.dashboard.home.status'), t('dashboard.dashboard.home.current_number'))
   end
 end

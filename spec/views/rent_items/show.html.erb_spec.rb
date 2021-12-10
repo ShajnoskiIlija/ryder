@@ -11,7 +11,7 @@ describe 'rent_items/show.html.erb', type: :view do
 
   it 'displays titles' do
     render
-    expect(rendered).to include('Owner:', 'Best for:', 'Call Me:')
+    expect(rendered).to include(t('rent_items.show.call'), t('rent_items.show.for_age'), t('rent_items.show.owner'))
   end
 
   it 'displays a cards' do

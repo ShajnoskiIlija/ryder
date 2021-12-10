@@ -1,0 +1,5 @@
+<% I18n.available_locales.each do |l|%>
+  <p class= 'hidden md:block'>|</p>
+  <%= link_to l, url_for(locale: l.name), class:"font-medium text-gray-700"%>
+  <p class= 'hidden md:block'>|</p>
+<% end %>

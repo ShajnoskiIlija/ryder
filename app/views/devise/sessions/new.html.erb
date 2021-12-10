@@ -4,12 +4,12 @@
       <div class="leading-loose">
         <div class="max-w-sm p-10 bg-white rounded shadow-xl">
           <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-            <p class="text-gray-800 text-center text-lg font-bold">Please Log in</p>
+            <p class="text-gray-800 text-center text-lg font-bold"><%= t('.log_in_message')%></p>
             <div class="mt-2">
-              <%= f.email_field :email, class:"w-full p-3 text-gray-800 bg-gray-100 hover:bg-gray-200 focus:bg-gray-200 rounded-lg focus:outline-none", placeholder:"Your Email", autocomplete: "email" %>
+              <%= f.email_field :email, class:"w-full p-3 text-gray-800 bg-gray-100 hover:bg-gray-200 focus:bg-gray-200 rounded-lg focus:outline-none", placeholder:t('.email'), autocomplete: "email" %>
             </div>
             <div class="mt-2">
-              <%= f.password_field :password, class:"w-full p-3 text-gray-800 bg-gray-100 hover:bg-gray-200 focus:bg-gray-200 rounded-lg focus:outline-none", placeholder:"Password", autocomplete: "current-password" %>
+              <%= f.password_field :password, class:"w-full p-3 text-gray-800 bg-gray-100 hover:bg-gray-200 focus:bg-gray-200 rounded-lg focus:outline-none", placeholder:t('.pw'), autocomplete: "current-password" %>
             </div>
             <% if devise_mapping.rememberable? %>
             <div class="field mb-2 text-gray-800">
@@ -18,17 +18,17 @@
             </div>
             <% end %>
             <div class="items-center flex justify-end">
-              <%= f.submit "Log in", class:"px-4 py-1 text-white font-semibold tracking-wider bg-green-600 hover:bg-green-700 rounded-lg"%>
+              <%= f.submit t('.log_in'), class:"px-4 py-1 text-white font-semibold tracking-wider bg-green-600 hover:bg-green-700 rounded-lg"%>
             </div>
              <div class="flex items-center justify-center mt-3">
                 <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-                  <%= link_to "Sign up", new_registration_path(resource_name) %>
+                  <%= link_to t('.sign_up'), new_registration_path(resource_name) %>
                 <% end %>
 
                 <span class="mx-2 text-gray-300"> | </span>
 
                 <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-                  <%= link_to "Forgot your password?", new_password_path(resource_name) %>
+                  <%= link_to t('.forgot'), new_password_path(resource_name) %>
                 <% end %>
              </div>
           <% end %>

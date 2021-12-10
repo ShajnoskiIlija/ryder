@@ -1,0 +1,146 @@
+mk:
+  pagy:
+    nav:
+      next: 'Следна'
+      gap: '...'
+      prev: 'Претх.'
+
+  devise:
+    sessions:
+      signed_in: 'Успешно се најавивте.'
+      signed_out: 'Успешно се одјавивте.'
+
+      new:
+        log_in_message: 'Ве молиме да се најавите'
+        log_in: 'Најави се'
+        sign_up: 'Регистрирај се'
+        forgot: 'Ја заборавивте лозинката?'
+        email: 'И-меил'
+        pw: 'Лозинка'
+
+    registrations:
+      new:
+        acc_message: 'Креирај сметка бесплатно'
+        acc_second: 'Бесплатно засекогаш'
+        sign_up: 'Регистрирај се'
+        acc_third: 'Имате сметка?'
+        char: 'Kарактери минимално'
+        name: 'Име'
+        last_name: 'Презиме'
+        address: 'Адреса'
+        email: 'И-меил'
+        mob: 'Телефон +356 555 654'
+        pw: 'Нова Лозинка'
+        new_pw: 'Потврдете ја лозинката'
+
+  layouts:
+    header:
+      rentals: 'Изнајмување'
+      dashboard: 'Табла'
+      about_us: 'За Нас'
+      log_in: 'Најави се'
+      sign_up: 'Регистрирај се'
+      sign_out: 'Одјави се'
+      logged_in_as: 'Најавен сте како:'
+
+    dashboard:
+      dashboard: 'Табла'
+      account: 'Сметка'
+      new_rent: 'Нов Рент'
+      my_rent: 'Мои Предмети'
+      view_request: 'Види Барања'
+
+  pages:
+    home:
+     view_rents: 'За Изнајмување'
+     get_started: 'Започни'
+     text_one: 'Изнајмување што ќе одговара на вашите потреби'
+     send_us_a: 'Прати ни'
+     message: 'Порака'
+     send_message: 'Прати Порака'
+     contact_us: 'Контакт'
+     message_one: 'Тука можете да контактирате со нас, да ги споделите вашите потреби или сугестии'
+     main_office: 'Канцеларии'
+     call_us: 'Јавете ни се'
+     go_to: 'Оди до :'
+     about_us: 'За Нас'
+     bicycles: 'Велосипеди'
+     electric_scooters: 'Електрични Скутери'
+     summer_equipment: 'Летна Oпрема'
+     winter_equipment: ' Зимска Опрема'
+     welcome: 'Добредојдовте'
+     message_two: 'Започнете тука и веднаш'
+     categories: 'Категории'
+     name: 'Име'
+     email: 'и-меил'
+     message_six: 'Вашата порака'
+
+    about:
+     who_are_we: 'Кои сме ние?'
+     message_about: 'Рајдер им помага на активните луѓе да се поврзат со доверливи сопственици на велосипеди. Рајдер е платформа за изнајмување и за поврзување на сопствениците со активни луѓе кои бараат да изнајмат или позајмуваат работи. Преку нашата платформа, сопствениците ги разменуваат своите велосипеди, електричните скутери, летната и зимската опрема, изнајмувачите бараат возење во која било локација и лесно го пополнуваат барањето за изнајмување преку нашата патформа.'
+     grow_together: 'Помогни да растеме заедно'
+     grow_together_message: 'Помогнете ни да растеме, започнеме да изнајмуваме на нашата платформа, заедно можеме да одиме далеку'
+     start_here: 'Започнете Тука'
+
+  rent_items:
+    index:
+      looking_for: 'Вие пребарувате за:'
+      view: 'Прегледај'
+      location: 'Локација'
+      condition: 'Состојба'
+      for_age: 'Погодно за:'
+
+    rent_item:
+      location: 'Локација'
+      condition: 'Состојба'
+      for_age: 'Погодно за:'
+      view: 'Прегледај'
+      looking_for: 'Вие пребарувате за:'
+
+    show:
+      call: 'Јави ми се'
+      owner: 'Сопственик:'
+      for_age: 'Погодно за:'
+      send: 'Прати Барање'
+      status: 'Статус:'
+      available: 'Достапно'
+
+  dashboard:
+    dashboard:
+      home:
+        status: 'Статус'
+        current_number: 'Моментален Број'
+        items: 'Предмети'
+        items_for_rent: 'Предмети за издавање'
+        items_for_children: 'Предмети за деца'
+        items_for_adult: 'Предмети за Возрасни'
+        bicycles: 'Велосипеди'
+        electric_scooters: 'Електрични Скутери'
+        summer_equipment: 'Летна Oпрема'
+        winter_equipment: 'Зимска Опрема'
+        rents: 'Предмети'
+        new_rents: 'Креирај Нов'
+
+    rent_items:
+      index:
+        best_for: 'Пригодно за:'
+        status: 'Статус:'
+        for_rent: 'Достапно за изнајмување'
+        taken: 'Зафатено'
+        edit: 'Уреди'
+
+      new:
+       create: 'Креирај нов рент'
+
+      edit:
+       edit: 'Уреди го рентот'
+
+      form:
+        cancel: 'Откажи'
+
+
+
+
+
+
+
