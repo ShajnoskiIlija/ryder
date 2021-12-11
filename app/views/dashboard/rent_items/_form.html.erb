@@ -23,14 +23,14 @@
                     </div>
 
                     <div class= "flex flex-row mt-4 border-green-500 border-rounded rounded-t">
-                        <%= f.label "Active", class:"text-gray-700 dark:text-gray-200  border-b-2 bg-opacity-5 border-green-600 rounded-b" %>
+                        <%= f.label :available, class:"text-gray-700 dark:text-gray-200  border-b-2 bg-opacity-5 border-green-600 rounded-b" %>
                         <%= f.check_box :available, class:"block w-full px-4 py-2 mt-2 text-gray-700 bg-gray-100 border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring" %>
                     </div>
                 </div>
 
                     <div class="flex items-end mt-12 w-4/12 space-x-3 ">
                         <%= f.submit class:"uppercase text-sm font-bold bg-green-600 text-gray-100 p-3 rounded-lg focus:shadow-outline transition-colors duration-200 hover:bg-green-700 dark:hover:bg-gray-200" %>
-                        <%= link_to 'Cancel', dashboard_rent_items_path, class:"uppercase  text-sm font-bold bg-green-600 text-gray-100 p-3 rounded-lg  focus:shadow-outline transition-colors duration-200  hover:bg-green-700 dark:hover:bg-gray-200" %>
+                        <%= link_to t('.cancel'), dashboard_rent_items_path, class:"uppercase  text-sm font-bold bg-green-600 text-gray-100 p-3 rounded-lg  focus:shadow-outline transition-colors duration-200  hover:bg-green-700 dark:hover:bg-gray-200" %>
                     </div >
             </div>
         <% end %>

@@ -2,9 +2,9 @@
     <div class="container px-6 py-8 mx-auto">
         <div class="items-center lg:flex">
             <div class="lg:w-1/2">
-                <h2 class="text-3xl font-bold text-gray-800 dark:text-gray-100">Who are we ?</h2>
+                <h2 class="text-3xl font-bold text-gray-800 dark:text-gray-100"><%=t('.who_are_we')%></h2>
                 <p class="mt-4 text-gray-500 dark:text-gray-400 lg:max-w-md">
-                    Ryder helps active people connect with trusted bike owners. Ryder is a rental and sharin platform to connect owners with active people looking to rent or borrow. Through our platform, owners lists their bikes, electric scooters, summer and winter equipment, renters search for a ride in whatever area they want, and complete the rental request easily through our patform.
+                   <%=t('.message_about')%>
                 </p>
                 <div class="flex items-center mt-6 -mx-2">
                     <%= link_to "https://www.facebook.com/profile.php?id=100074592610559", class:"mx-2", aria: { label:"Facebook" } do %>
@@ -30,10 +30,10 @@
                 <div class="h-64 bg-cover lg:rounded-lg lg:h-full" style="background-image:url(<%= asset_path 'cards/bikers.jpg'%>)"></div>
             </div>
             <div class="max-w-xl px-6 py-12 lg:max-w-5xl lg:w-1/2">
-                <h2 class="text-2xl font-bold text-gray-800 dark:text-white md:text-3xl">Help us to grow together</h2>
-                <p class="mt-4 text-gray-600 dark:text-gray-400">Help us to grow, start renting on our platform, together we can go further</p>
+                <h2 class="text-2xl font-bold text-gray-800 dark:text-white md:text-3xl"><%=t('.grow_together')%></h2>
+                <p class="mt-4 text-gray-600 dark:text-gray-400"><%=t('.grow_together')%></p>
                 <div class="mt-8">
-                    <%= link_to "Start Here", new_dashboard_rent_item_path, class:"px-5 py-2 font-semibold text-white transition-colors duration-200 transform bg-green-600 rounded-md hover:bg-green-700"%>
+                    <%= link_to t('.start_here'), new_dashboard_rent_item_path, class:"px-5 py-2 font-semibold text-white transition-colors duration-200 transform bg-green-600 rounded-md hover:bg-green-700"%>
                 </div>
             </div>
         </div>

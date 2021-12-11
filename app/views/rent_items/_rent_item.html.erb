@@ -7,11 +7,11 @@
     <div class="title-post font-medium"></div>
     <div class="summary-post text-base text-justify">
         <div class="px-5">
-        <p class="text-base"> Location: <span class="font-semibold"> <%= item.location %> </span> </p>
-        <p> Condition:  <span class="font-semibold"> <%= item.condition %> </span> </p>
-        <p> Suitable for age:  <span class="font-semibold"> <%= item.for_age %> </span> </p>
+        <p class="text-base"><%= t('.location') %> <span class="font-semibold"> <%= item.location %> </span> </p>
+        <p> <%= t('.condition')%>  <span class="font-semibold"> <%= item.condition %> </span> </p>
+        <p> <%= t('.for_age')%>  <span class="font-semibold"> <%= item.for_age %> </span> </p>
         </div>
-        <%= link_to 'View', item, class: 'w-full mt-4 block p-2 text-sm bg-green-600 hover:bg-green-700 text-white font-semibold text-center' %>
+        <%= link_to t('.view'), item, class: 'w-full mt-4 block p-2 text-sm bg-green-600 hover:bg-green-700 text-white font-semibold text-center' %>
     </div>
     </div>
 </div>

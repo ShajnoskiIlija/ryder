@@ -11,7 +11,7 @@
   <section class="blog text-gray-700 rounded-md ">
     <div class="max-w-6xl px-2 py-8 mx-auto rounded-md">
       <div class="w-full my-10 items-center text-center drop-shadow">
-        <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900 filter"><p>You're looking for:</p><%= params[:rent_type] %></p></h1>
+        <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900 filter"><p><%= t('.looking_for')%></p><%= params[:rent_type] %></p></h1>
       </div>
       <div class="sm:grid grid-cols-1 md:grid-cols-3 gap-8">
         <%= render partial: 'rent_item', collection:  @rent_items, as: :item %>
