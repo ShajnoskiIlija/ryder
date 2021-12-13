@@ -2,9 +2,10 @@
 
 module Dashboard
   class RentRequestsController < Dashboard::DashboardController
+    include Pagy::Backend
     def index
       current_user_rent_items = current_user.rent_items.pluck(:id)
-      @rent_requests = RentRequest.where(rent_item_id: current_user_rent_items)
+      @pagy, @rent_requests = pagy(RentRequest.where(rent_item_id: current_user_rent_items))
     end
 
     def create

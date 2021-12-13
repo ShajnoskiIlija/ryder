@@ -8,6 +8,7 @@ describe 'dashboard/rent_requests/index.html.erb', type: :view do
 
   before do
     assign(:rent_requests, [rent_request])
+    assign(:pagy, Pagy.new(count: 2, page: 1))
   end
 
   context 'with dynamic content' do

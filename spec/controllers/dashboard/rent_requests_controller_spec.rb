@@ -20,7 +20,7 @@ describe Dashboard::RentRequestsController, type: :controller do
       it 'returns correct records' do
         get :index
         current_user_rent_items = user.rent_items.pluck(:id)
-        expect(assigns(:rent_requests)).to eq(RentRequest.where(rent_item_id: current_user_rent_items))
+        expect(assigns(:rent_requests)).to match_array(RentRequest.where(rent_item_id: current_user_rent_items))
       end
     end
   end
