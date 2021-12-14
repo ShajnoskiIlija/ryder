@@ -1,61 +1,64 @@
 <div class="max-w-sm mx-auto mt-8 overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800">
-    <img class="object-cover object-center w-full h-56" src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80" alt="avatar">
-
-    <div class="px-6 py-4">
-        <p class="text-xl font-semibold text-gray-800 dark:text-white">
+<div class="bg-gray-300 h-56 w-full rounded-b bg-cover bg-center" style="background-image: url(<%= image_path('cards/jump.jpg') %>)"></div>
+    <div class="px-2 py-4">
+        <p class="text-xl font-semibold text-gray-800 dark:text-white border-b-2">
         <%= @rent_item.item_type%>
         </p>
-            <p class="py-2 text-gray-900 font-semibold border-t-2 dark:text-gray-400"> <%= t('.call')%></p>
-            <%= @rent_item.user.phone_number%>
-        <p><%= t('.owner')%> <%= @rent_item.user.first_name%> <%= @rent_item.user.last_name%></p>
-        <p class="border-t-2"><%= t('.status')%></p>
-            <% if @rent_item.available%>
-                <p class="text-green-500"> <%= t('.available')%></p>
-                <% else %>
-                <p class="text-red-500"> Taken</p>
-            <% end %>
-
-        <p class="py-2 text-gray-700 border-t-2 dark:text-gray-400"> <%= t('.for_age')%>
-            <%= @rent_item.for_age%>
-        </p>
-
+        <span class="py-2 text-gray-900 dark:text-gray-400 ">
+            <%= t('.call')%>
+            <p class='border-b-2 font-semibold'>
+                <%= @rent_item.user.phone_number%>
+            </p>
+        </span>
+        <span class="py-2 text-gray-900 dark:text-gray-400">
+            <%= t('.owner')%>
+            <p class='border-b-2 font-semibold'>
+                <%= @rent_item.user.first_name%>
+                <%= @rent_item.user.last_name%>
+            </p>
+        </span>
+        <span class="py-2 text-gray-700 dark:text-gray-400 ">
+                <%= t('.for_age')%>
+            <p class='border-b-2 font-semibold'>
+                <%= @rent_item.for_age%>
+            </p>
+        </span>
         <div class="flex items-center mt-4 text-gray-700 dark:text-gray-200">
             <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M14 11H10V13H14V11Z"/><path fill-rule="evenodd" clip-rule="evenodd" d="M7 5V4C7 2.89545 7.89539 2 9 2H15C16.1046 2 17 2.89545 17 4V5H20C21.6569 5 23 6.34314 23 8V18C23 19.6569 21.6569 21 20 21H4C2.34314 21 1 19.6569 1 18V8C1 6.34314 2.34314 5 4 5H7ZM9 4H15V5H9V4ZM4 7C3.44775 7 3 7.44769 3 8V14H21V8C21 7.44769 20.5522 7 20 7H4ZM3 18V16H21V18C21 18.5523 20.5522 19 20 19H4C3.44775 19 3 18.5523 3 18Z"/>
             </svg>
-
-            <h1 class="px-2 text-sm"><%= @rent_item.condition%></h1>
+            <h1 class="px-2 text-sm">
+                <%= @rent_item.condition%>
+            </h1>
         </div>
-
         <div class="flex items-center mt-4 text-gray-700 dark:text-gray-200">
             <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" clip-rule="evenodd" d="M16.2721 10.2721C16.2721 12.4813 14.4813 14.2721 12.2721 14.2721C10.063 14.2721 8.27214 12.4813 8.27214 10.2721C8.27214 8.063 10.063 6.27214 12.2721 6.27214C14.4813 6.27214 16.2721 8.063 16.2721 10.2721ZM14.2721 10.2721C14.2721 11.3767 13.3767 12.2721 12.2721 12.2721C11.1676 12.2721 10.2721 11.3767 10.2721 10.2721C10.2721 9.16757 11.1676 8.27214 12.2721 8.27214C13.3767 8.27214 14.2721 9.16757 14.2721 10.2721Z"/><path fill-rule="evenodd" clip-rule="evenodd" d="M5.79417 16.5183C2.19424 13.0909 2.05438 7.3941 5.48178 3.79418C8.90918 0.194258 14.6059 0.0543983 18.2059 3.48179C21.8058 6.90919 21.9457 12.606 18.5183 16.2059L12.3124 22.7241L5.79417 16.5183ZM17.0698 14.8268L12.243 19.8965L7.17324 15.0698C4.3733 12.404 4.26452 7.9732 6.93028 5.17326C9.59603 2.37332 14.0268 2.26454 16.8268 4.93029C19.6267 7.59604 19.7355 12.0269 17.0698 14.8268Z"/>
             </svg>
-
             <h1 class="px-2 text-sm">
-            <%= link_to @rent_item.location, "#", class:"underline"%>
+                <%= @rent_item.location %>
             </h1>
         </div>
-
         <div class="flex items-center mt-4 text-gray-700 dark:text-gray-200">
             <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" clip-rule="evenodd" d="M3.00977 5.83789C3.00977 5.28561 3.45748 4.83789 4.00977 4.83789H20C20.5523 4.83789 21 5.28561 21 5.83789V17.1621C21 18.2667 20.1046 19.1621 19 19.1621H5C3.89543 19.1621 3 18.2667 3 17.1621V6.16211C3 6.11449 3.00333 6.06765 3.00977 6.0218V5.83789ZM5 8.06165V17.1621H19V8.06199L14.1215 12.9405C12.9499 14.1121 11.0504 14.1121 9.87885 12.9405L5 8.06165ZM6.57232 6.80554H17.428L12.7073 11.5263C12.3168 11.9168 11.6836 11.9168 11.2931 11.5263L6.57232 6.80554Z"/>
             </svg>
-
             <h1 class="px-2 text-sm"><%= mail_to @rent_item.user.email, @rent_item.user.email, class: "underline" %></h1>
         </div>
-        <div class= 'px-6 m-2 py-2 leading-5 text-red-600 transition-colors duration-200 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600'>
+        <div class= 'items-center border-t-2 mt-2'>
             <% if user_signed_in? && @rent_item.available %>
                 <%= form_with model: RentRequest.new, url: dashboard_rent_requests_path do |f| %>
                     <%= f.hidden_field :rent_item_id, value: @rent_item.id %>
-                    <%= f.submit  t('.send') %>
+                    <%= f.submit  t('.send'), class: 'm-2 py-3 w-11/12 text-sm bg-green-600 hover:bg-green-700 text-white font-semibold text-center rounded' %>
                 <% end %>
             <% end %>
         </div>
-
     </div>
 </div>
 <hr class="mt-4">
+<div>
+    <p class="heading text-center font-bold text-2xl m-5 text-gray-900">Find On Map</p>
+</div>
 <div class="flex justify-center text-center mb-4 mt-6">
     <iframe width="800" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
     src="http://www.openstreetmap.org/export/embed.html?bbox=13.607666%2C38.370824%2C30.295899%2C44.319020&amp;layer=mapnik&amp;marker=<%= @rent_item.user.latitude %>%2C<%= @rent_item.user.longitude %>" style="border: 1px solid black"></iframe><br/>
