@@ -1,8 +1,11 @@
 ActionMailer::Base.smtp_settings = {
-    domain: 'YOUR_DOMAIN.COM',
-    address:        "smtp.sendgrid.net",
-    port:            587,
-    authentication: :plain,
-    user_name:      'apikey',
-    password:       Rails.application.credentials.dig(:sendgrid, :api_key)
-  }
+    ActionMailer::Base.smtp_settings = {
+        address: 'rydewithus22@gmail.com',
+        port: 587,
+        domain: 'ryder-staging.herokuapp.com',
+        user_name: ENV['Ryder'],
+        password: ENV['@Password-rydewithus'],
+        authentication: :login,
+        enable_starttls_auto: :true
+    }
+}
