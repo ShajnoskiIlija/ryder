@@ -124,11 +124,11 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
 
   ActionMailer::Base.smtp_settings = {
-    domain: 'rydewithus22@gmail.com',
+    domain:         ENV['SENDGRID_DOMAIN'],
     address:        "smtp.sendgrid.net",
     port:            587,
     authentication: :plain,
-    user_name:      ENV['USER_NAME'],
+    user_name:      ENV['SENDGRID_USERNAME'],
     password:       ENV['SENDGRID_API_KEY']
   }
 
