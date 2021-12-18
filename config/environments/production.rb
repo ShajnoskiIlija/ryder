@@ -122,6 +122,16 @@ Rails.application.configure do
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
 
   config.action_mailer.delivery_method = :smtp
+
+  ActionMailer::Base.smtp_settings = {
+    domain: 'rydewithus22@gmail.com',
+    address:        "smtp.sendgrid.net",
+    port:            587,
+    authentication: :plain,
+    user_name:      ENV['USER_NAME'],
+    password:       ENV['SENDGRID_API_KEY']
+  }
+
   config.action_mailer.default_url_options = { host: "https://ryder-staging.herokuapp.com/" }
 
 end

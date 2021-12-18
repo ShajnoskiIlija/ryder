@@ -31,4 +31,12 @@ RSpec.describe User, type: :model do
       expect(user.longitude).not_to eq(-73.97793280375334)
     end
   end
+
+  describe 'method full_name' do
+    let(:user) { create :user, first_name: 'John', last_name: 'Doe' }
+
+    it 'creates full name' do
+      expect(user.full_name).to eq('John Doe')
+    end
+  end
 end

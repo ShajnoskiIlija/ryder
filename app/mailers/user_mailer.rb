@@ -5,7 +5,6 @@ class UserMailer < ApplicationMailer
 
   def welcome_email
     @user = params[:user]
-    @url = 'https://ryder-staging.herokuapp.com/users/sign_in'
     mail(to: @user.email, subject: 'Welcome to Ryder')
   end
 end
