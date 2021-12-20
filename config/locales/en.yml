@@ -6,15 +6,17 @@ en:
         log_in: 'Log In'
         sign_up: "Sign Up"
         forgot: 'Forgot your password?'
+        pw: 'Enter Password'
+        email: 'Enter E-mail'
 
-    registration:
+    registrations:
       new:
         acc_message: 'Create an account for free'
         acc_second: 'Free forever. No payment needed.'
         sign_up: 'Sign Up'
         acc_third: 'Already have an account?'
         char: 'Characters minimum'
-        name: 'Име'
+        name: 'Name'
         last_name: 'Last Name'
         address: 'Address'
         email: 'E-mail'
