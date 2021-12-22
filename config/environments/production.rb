@@ -124,4 +124,5 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.default_url_options = { host: "https://ryder-staging.herokuapp.com/" }
 
+  config.active_job.queue_adapter = :sidekiq
 end
