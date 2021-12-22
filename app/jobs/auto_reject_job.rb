@@ -3,5 +3,4 @@ class AutoRejectJob < ApplicationJob
 
   def perform(*args)
   end
-
 end

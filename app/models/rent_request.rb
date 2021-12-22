@@ -12,4 +12,10 @@ class RentRequest < ApplicationRecord
   before_create do
     self.status = 'pending'
   end
+
+  after_update do
+    RentRequest.where(['rent_item_id = ? and status = ?', rent_item, 'pending']).find_each do |rr|
+      rr.update!(status: 'rejected')
+    end
+  end
 end
