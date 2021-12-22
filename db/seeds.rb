@@ -2,6 +2,7 @@
 
 require 'factory_bot_rails'
 include FactoryBot::Syntax::Methods
+ActionMailer::Base.perform_deliveries = false
 
 puts 'Seed started...'
 
