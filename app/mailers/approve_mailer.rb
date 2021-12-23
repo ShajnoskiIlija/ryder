@@ -7,7 +7,7 @@ class ApproveMailer < ApplicationMailer
     @rent_request = rent_request
     @user = User.find_by(id: @rent_request.status == 'accepted')
 
-    mail to: @user.email,
+    mail to: @rent_request.user.email,
          subject: 'Your request is approved'
   end
 end

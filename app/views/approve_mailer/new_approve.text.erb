@@ -1,5 +1,6 @@
 We want to inform you that your request is approved
 
-Your request for <%= @rent_request.rent_item.item_type %> is approved by the owner.
+Your request for <%= @rent_request.rent_item.item_type%>, that is suitable for: <%= @rent_request.rent_item.for_age%>, is approved by the owner.
+You can pick up from this location: <%= @rent_request.rent_item.location%> or call on this number: <%= @rent_request.user.phone_number%>, with current condition <%= @rent_request.rent_item.condition%>.
 
 Thank you and have a great day!

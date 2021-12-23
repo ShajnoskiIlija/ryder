@@ -7,7 +7,7 @@ class RejectMailer < ApplicationMailer
     @rent_request = rent_request
     @user = User.find_by(id: @rent_request.status == 'rejected')
 
-    mail to: @user.email,
+    mail to: @rent_request.user.email,
          subject: 'Unfortunately your request was not accepted by the owner'
   end
 end

@@ -20,7 +20,7 @@ module Dashboard
       end
     end
 
-    def update
+    def update # rubocop:disable Metrics/MethodLength, Metrics/AbcSize
       if @rent_request.update(update_rent_request_params)
         if @rent_request.status == 'accepted'
           @rent_request.rent_item.update(available: false)
@@ -32,6 +32,7 @@ module Dashboard
       else
         redirect_to dashboard_rent_requests_path, alert: 'Rent Request was not updated '
       end
+      RejectMailer.reject_email(@rent_request).deliver_now if @rent_request.status == 'rejected'
     end
 
     private
