@@ -8,14 +8,4 @@ class RentRequest < ApplicationRecord
   UPDATE_STATUSES = %w[accepted rejected].freeze
 
   validates :status, inclusion: { in: UPDATE_STATUSES }, on: :update
-
-  before_create do
-    self.status = 'pending'
-  end
-
-  after_update do
-    RentRequest.where(['rent_item_id = ? and status = ?', rent_item, 'pending']).find_each do |rr|
-      rr.update!(status: 'rejected')
-    end
-  end
 end
