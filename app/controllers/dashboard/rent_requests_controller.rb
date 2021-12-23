@@ -20,14 +20,13 @@ module Dashboard
       end
     end
 
-    def update # rubocop:disable Metrics/MethodLength, Metrics/AbcSize
+    def update
       if @rent_request.update(update_rent_request_params)
         if @rent_request.status == 'accepted'
+          @rent_request.rent_item.update(available: false)
           ApproveMailer.new_approve(@rent_request).deliver_now
 
-          @rent_request.rent_item.update(available: false)
           RentRequest.where(rent_item_id: @rent_request.rent_item.id, status: 'pending').each { |rr| rr.update(status: 'rejected') }
-          RejectMailer.reject_email(@rent_request).deliver_now
         end
         redirect_to dashboard_rent_requests_path, notice: 'Rent Request successfully updated'
       else
