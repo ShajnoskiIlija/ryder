@@ -5,7 +5,7 @@ require 'rails_helper'
 RSpec.describe RejectMailer, type: :mailer do
   describe 'send_reject mail' do
     let(:user) { create(:user) }
-    let(:rent_request) { create(:rent_request, user: user, status: 'rejected')}
+    let(:rent_request) { create(:rent_request, user: user, status: 'rejected') }
     let(:mail) { described_class.reject_email(rent_request) }
 
     it 'renders the headers' do
