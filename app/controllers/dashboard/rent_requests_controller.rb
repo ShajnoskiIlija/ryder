@@ -28,11 +28,12 @@ module Dashboard
 
           RentRequest.where(rent_item_id: @rent_request.rent_item.id, status: 'pending').each { |rr| rr.update(status: 'rejected') }
         end
+        @rent_request.rent_item.update(available: true) if @rent_request.status == 'rejected'
+        RejectMailer.reject_email(@rent_request).deliver_now
         redirect_to dashboard_rent_requests_path, notice: 'Rent Request successfully updated'
       else
         redirect_to dashboard_rent_requests_path, alert: 'Rent Request was not updated '
       end
-      RejectMailer.reject_email(@rent_request).deliver_now if @rent_request.status == 'rejected'
     end
 
     private
