@@ -8,4 +8,20 @@ class RentRequest < ApplicationRecord
   UPDATE_STATUSES = %w[accepted rejected].freeze
 
   validates :status, inclusion: { in: UPDATE_STATUSES }, on: :update
+
+  def accepted?
+    status == 'accepted'
+  end
+
+  def rejected?
+    status == 'rejected'
+  end
+
+  def reject!
+    update(status: 'rejected')
+  end
+
+  scope :pending, -> { where(status: 'pending') }
+  scope :accepted, -> { where(status: 'accepted') }
+  scope :rejected, -> { where(status: 'rejected') }
 end

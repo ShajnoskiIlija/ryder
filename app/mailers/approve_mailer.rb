@@ -5,9 +5,9 @@ class ApproveMailer < ApplicationMailer
 
   def new_approve(rent_request)
     @rent_request = rent_request
-    @user = User.find_by(id: @rent_request.status == 'accepted')
+    @user = rent_request.user
 
-    mail to: @rent_request.user.email,
+    mail to: @user.email,
          subject: 'Your request is approved'
   end
 end
