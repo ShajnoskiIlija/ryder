@@ -2,9 +2,9 @@
 
 require 'rails_helper'
 
-describe Dashboard::RentRequestsController, type: :controller do
-  let(:rent_request) { create(:rent_request) }
+describe Dashboard::RentRequestsController, type: :controller do # rubocop:disable Metrics/BlockLength,
   let!(:user) { create :user }
+  let(:rent_request) { create(:rent_request, user: user) }
 
   before { sign_in user }
 
@@ -62,22 +62,20 @@ describe Dashboard::RentRequestsController, type: :controller do
       before { post :create, params: { rent_request: { rent_item_id: new_rent_item.id } } }
 
       it 'checks if rent request user is current_user' do
+        expect(RentRequest.last.user).to eq(user)
+      end
+
+      it 'checks if rent request has status pending' do
         expect(RentRequest.last.status).to eq('pending')
       end
     end
   end
 
   describe 'put /update' do
-    let(:rent_request) { create(:rent_request, user: user) }
-
     context 'when accepts request' do
       before do
         put :update, params: { id: rent_request.id, rent_request: { status: 'accepted' } }
         rent_request.reload
-      end
-
-      it 'sends an email' do
-        expect(ApproveMailer.new_approve(rent_request)).to change(ActionMailer::Base.deliveries(:count)).by(1)
       end
 
       it 'updates status to accepted' do
@@ -87,6 +85,13 @@ describe Dashboard::RentRequestsController, type: :controller do
       it 'rent item should not be available' do
         rent_request.rent_item.reload
         expect(rent_request.rent_item.available).to eq(false)
+      end
+    end
+
+    context 'when rent item is accepted and sends an accepted email' do
+      it 'sends a new approve email' do
+        rent_request.reload
+        expect { put :update, params: { id: rent_request.id, rent_request: { status: 'accepted' } } }.to change { ActionMailer::Base.deliveries.count }.by(1)
       end
     end
 
@@ -103,6 +108,13 @@ describe Dashboard::RentRequestsController, type: :controller do
       it 'rent item should be available' do
         rent_request.rent_item.reload
         expect(rent_request.rent_item.available).to eq(true)
+      end
+    end
+
+    context 'when rent item is rejected and sends a rejected email' do
+      it 'sends an rejected email' do
+        rent_request.reload
+        expect { put :update, params: { id: rent_request.id, rent_request: { status: 'rejected' } } }.to change { ActionMailer::Base.deliveries.count }.by(1)
       end
     end
 
