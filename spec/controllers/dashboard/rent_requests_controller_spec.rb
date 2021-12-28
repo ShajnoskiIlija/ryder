@@ -76,6 +76,10 @@ describe Dashboard::RentRequestsController, type: :controller do
         rent_request.reload
       end
 
+      it 'sends an email' do
+        expect(ApproveMailer.new_approve(rent_request)).to change(ActionMailer::Base.deliveries(:count)).by(1)
+      end
+
       it 'updates status to accepted' do
         expect(rent_request.status).to eq('accepted')
       end
