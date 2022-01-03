@@ -89,9 +89,11 @@ describe Dashboard::RentRequestsController, type: :controller do # rubocop:disab
     end
 
     context 'when rent item is accepted and sends an accepted email' do
+      let(:new_item) { create :rent_item }
+      let(:new_request) { create :rent_request, user: user, rent_item: new_item }
+
       it 'sends a new approve email' do
-        rent_request.reload
-        expect { put :update, params: { id: rent_request.id, rent_request: { status: 'accepted' } } }.to change { ActionMailer::Base.deliveries.count }.by(1)
+        expect { put :update, params: { id: new_request.id, rent_request: { status: 'accepted' } } }.to change { ActionMailer::Base.deliveries.count }.by(1)
       end
     end
 
@@ -106,14 +108,12 @@ describe Dashboard::RentRequestsController, type: :controller do # rubocop:disab
       end
 
       it 'rent item should be available' do
-        rent_request.rent_item.reload
         expect(rent_request.rent_item.available).to eq(true)
       end
     end
 
     context 'when rent item is rejected and sends a rejected email' do
       it 'sends an rejected email' do
-        rent_request.reload
         expect { put :update, params: { id: rent_request.id, rent_request: { status: 'rejected' } } }.to change { ActionMailer::Base.deliveries.count }.by(1)
       end
     end
