@@ -10,7 +10,7 @@ RSpec.describe 'user_mailer/welcome_email.html.erb', type: :view do
     render
 
     expect(rendered).to include('Welcome to ryder.com,')
-    expect(rendered).to include(user.full_name)
+    expect(rendered).to include(CGI.escapeHTML(user.full_name))
     expect(rendered).to include(new_user_session_url)
   end
 end

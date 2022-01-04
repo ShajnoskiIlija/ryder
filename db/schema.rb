@@ -66,12 +66,12 @@ ActiveRecord::Schema.define(version: 2021_12_09_165546) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id"
-    t.boolean "available"
+    t.boolean "available", default: true
     t.index ["user_id"], name: "index_rent_items_on_user_id"
   end
 
   create_table "rent_requests", force: :cascade do |t|
-    t.string "status"
+    t.string "status", default: "pending"
     t.bigint "user_id"
     t.bigint "rent_item_id"
     t.datetime "created_at", precision: 6, null: false

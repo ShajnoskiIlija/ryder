@@ -9,7 +9,19 @@ class RentRequest < ApplicationRecord
 
   validates :status, inclusion: { in: UPDATE_STATUSES }, on: :update
 
-  before_create do
-    self.status = 'pending'
+  def accepted?
+    status == 'accepted'
   end
+
+  def rejected?
+    status == 'rejected'
+  end
+
+  def reject!
+    update(status: 'rejected')
+  end
+
+  scope :pending, -> { where(status: 'pending') }
+  scope :accepted, -> { where(status: 'accepted') }
+  scope :rejected, -> { where(status: 'rejected') }
 end

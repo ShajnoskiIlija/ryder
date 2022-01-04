@@ -3,9 +3,11 @@
 module Dashboard
   class RentRequestsController < Dashboard::DashboardController
     include Pagy::Backend
+    before_action :find_rent_request, only: %i[update]
+
     def index
       current_user_rent_items = current_user.rent_items.pluck(:id)
-      @pagy, @rent_requests = pagy(RentRequest.where(rent_item_id: current_user_rent_items))
+      @pagy, @rent_requests = pagy(RentRequest.where(rent_item_id: current_user_rent_items).pending)
     end
 
     def create
@@ -18,14 +20,22 @@ module Dashboard
       end
     end
 
-    def update
-      @rent_request = RentRequest.find(params[:id])
+    def update # rubocop:disable Metrics/MethodLength, Metrics/AbcSize
       if @rent_request.update(update_rent_request_params)
-        @rent_request.rent_item.update(available: false) if @rent_request.status == 'accepted'
-        @rent_request.rent_item.update(available: true) if @rent_request.status == 'rejected'
+        if @rent_request.accepted?
+          @rent_request.rent_item.update(available: false)
+          reject_pending_requests(@rent_request)
+          ApproveMailer.new_approve(@rent_request).deliver_now
+        end
+
+        if @rent_request.rejected?
+          @rent_request.rent_item.update(available: true)
+          RejectMailer.reject_email(@rent_request).deliver_now
+        end
+
         redirect_to dashboard_rent_requests_path, notice: 'Rent Request successfully updated'
       else
-        redirect_to dashboard_rent_requests_path, alert: 'Rent Request was not updated '
+        redirect_to dashboard_rent_requests_path, alert: 'Rent Request was not updated'
       end
     end
 
@@ -40,7 +50,14 @@ module Dashboard
     end
 
     def find_rent_request
-      @rent_request = current_user.rent_requests.find(params[:id])
+      @rent_request = RentRequest.find(params[:id])
+    end
+
+    def reject_pending_requests(rent_request)
+      RentRequest.where(rent_item_id: rent_request.rent_item.id).pending.each do |rr|
+        rr.reject!
+        RejectMailer.reject_email(rr).deliver_now
+      end
     end
   end
 end

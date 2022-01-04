@@ -16,7 +16,9 @@ describe 'rent_items/show.html.erb', type: :view do
 
   it 'displays a cards' do
     render
-    expect(rendered).to include(rent_item.condition, rent_item.item_type, rent_item.for_age, rent_item.user.phone_number, rent_item.user.last_name, rent_item.user.first_name, rent_item.location,
+    expect(rendered).to include(rent_item.condition, rent_item.item_type, rent_item.for_age, rent_item.user.phone_number,
                                 rent_item.user.email)
+    expect(rendered).to include(CGI.escapeHTML(rent_item.user.last_name))
+    expect(rendered).to include(CGI.escapeHTML(rent_item.location))
   end
 end

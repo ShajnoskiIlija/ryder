@@ -2,9 +2,9 @@
 
 require 'rails_helper'
 
-describe Dashboard::RentRequestsController, type: :controller do
-  let(:rent_request) { create(:rent_request) }
+describe Dashboard::RentRequestsController, type: :controller do # rubocop:disable Metrics/BlockLength,
   let!(:user) { create :user }
+  let(:rent_request) { create(:rent_request, user: user) }
 
   before { sign_in user }
 
@@ -62,14 +62,16 @@ describe Dashboard::RentRequestsController, type: :controller do
       before { post :create, params: { rent_request: { rent_item_id: new_rent_item.id } } }
 
       it 'checks if rent request user is current_user' do
+        expect(RentRequest.last.user).to eq(user)
+      end
+
+      it 'checks if rent request has status pending' do
         expect(RentRequest.last.status).to eq('pending')
       end
     end
   end
 
   describe 'put /update' do
-    let(:rent_request) { create(:rent_request, user: user) }
-
     context 'when accepts request' do
       before do
         put :update, params: { id: rent_request.id, rent_request: { status: 'accepted' } }
@@ -86,6 +88,15 @@ describe Dashboard::RentRequestsController, type: :controller do
       end
     end
 
+    context 'when rent item is accepted and sends an accepted email' do
+      let(:new_item) { create :rent_item }
+      let(:new_request) { create :rent_request, user: user, rent_item: new_item }
+
+      it 'sends a new approve email' do
+        expect { put :update, params: { id: new_request.id, rent_request: { status: 'accepted' } } }.to change { ActionMailer::Base.deliveries.count }.by(1)
+      end
+    end
+
     context 'when rejects request' do
       before do
         put :update, params: { id: rent_request.id, rent_request: { status: 'rejected' } }
@@ -97,8 +108,13 @@ describe Dashboard::RentRequestsController, type: :controller do
       end
 
       it 'rent item should be available' do
-        rent_request.rent_item.reload
         expect(rent_request.rent_item.available).to eq(true)
+      end
+    end
+
+    context 'when rent item is rejected and sends a rejected email' do
+      it 'sends an rejected email' do
+        expect { put :update, params: { id: rent_request.id, rent_request: { status: 'rejected' } } }.to change { ActionMailer::Base.deliveries.count }.by(1)
       end
     end
 
