@@ -83,7 +83,6 @@ describe Dashboard::RentRequestsController, type: :controller do # rubocop:disab
       end
 
       it 'rent item should not be available' do
-        rent_request.rent_item.reload
         expect(rent_request.rent_item.available).to eq(false)
       end
     end

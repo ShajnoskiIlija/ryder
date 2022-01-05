@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 describe RentItemsController, type: :controller do
-  let(:rent_item) { create(:rent_item, available: true) }
+  let!(:rent_item) { create(:rent_item, available: true) }
   let(:current_user) { create(:user) }
 
   before { sign_in current_user }
