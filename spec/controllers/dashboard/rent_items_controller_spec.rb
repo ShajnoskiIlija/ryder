@@ -6,7 +6,10 @@ describe Dashboard::RentItemsController, type: :controller do
   let(:rent_item) { create :rent_item }
   let!(:user) { create :user }
 
-  before { sign_in user }
+  before do
+    user.confirm
+    sign_in user
+  end
 
   describe 'GET dashboard/rent_items' do
     it 'has a 200 status code' do
