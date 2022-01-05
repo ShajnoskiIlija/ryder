@@ -6,10 +6,7 @@ describe Dashboard::RentRequestsController, type: :controller do # rubocop:disab
   let!(:user) { create :user }
   let(:rent_request) { create(:rent_request, user: user) }
 
-  before do
-    user.confirm
-    sign_in user
-  end
+  before { sign_in user }
 
   describe 'GET /index' do
     it 'returns http success' do
@@ -86,7 +83,6 @@ describe Dashboard::RentRequestsController, type: :controller do # rubocop:disab
       end
 
       it 'rent item should not be available' do
-        rent_request.rent_item.reload
         expect(rent_request.rent_item.available).to eq(false)
       end
     end
@@ -96,7 +92,6 @@ describe Dashboard::RentRequestsController, type: :controller do # rubocop:disab
       let(:new_request) { create :rent_request, user: user, rent_item: new_item }
 
       it 'sends a new approve email' do
-        new_request.reload
         expect { put :update, params: { id: new_request.id, rent_request: { status: 'accepted' } } }.to change { ActionMailer::Base.deliveries.count }.by(1)
       end
     end
@@ -118,7 +113,6 @@ describe Dashboard::RentRequestsController, type: :controller do # rubocop:disab
 
     context 'when rent item is rejected and sends a rejected email' do
       it 'sends an rejected email' do
-        rent_request.reload
         expect { put :update, params: { id: rent_request.id, rent_request: { status: 'rejected' } } }.to change { ActionMailer::Base.deliveries.count }.by(1)
       end
     end

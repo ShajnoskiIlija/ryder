@@ -3,14 +3,10 @@
 require 'rails_helper'
 
 describe RentItemsController, type: :controller do
-  let(:user) { create(:user) }
   let!(:rent_item) { create(:rent_item, available: true) }
   let(:current_user) { create(:user) }
 
-  before do
-    user.confirm
-    sign_in current_user
-  end
+  before { sign_in current_user }
 
   describe 'GET /index' do
     it 'returns http success' do
