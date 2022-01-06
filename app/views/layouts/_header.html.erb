@@ -17,7 +17,7 @@
             </div>
           </div>
           <!-- Mobile Menu open: "block", Menu closed: "hidden" -->
-          <div data-dropdown-target="dropdown">
+          <div data-dropdown-target="dropdown" class='sm:block'>
             <div class="flex flex-col md:flex-row md:items-center md:mx-8">
               <% if user_signed_in? %>
                 <%= link_to t('.rentals'), rent_items_path, class:"px-2 py-1 mx-2 mt-2 text-sm font-medium text-gray-900 transition-colors duration-200 transform rounded-md md:mt-0 dark:text-gray-800 dark:hover:bg-gray-300"%>
