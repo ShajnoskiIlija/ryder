@@ -13,5 +13,5 @@ class RentItem < ApplicationRecord
   end
 
   scope :rent_item_per_type, ->(rent_type) { where(item_type: rent_type) }
-  scope :my_rentals, ->(logged_user, params) { where(id: params, user_id: logged_user.id) }
+  scope :my_rentals, ->(logged_user) { where(user_id: logged_user.id) }
 end
