@@ -1,23 +1,23 @@
 <div class='max-w-full mx-auto md:py-24 px-6'>
   <div class="max-w-sm mx-auto px-6">
-      <div class="md:mt-6">
-        <div class="text-center font-semibold text-gray-800">
-            Forgot your password?
-        </div>
-        <div class="text-center font-base text-gray-800">
-            You can change your password, please send an email for instructions
-        </div>
-        <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-          <div class="mx-auto max-w-lg ">
-            <div class="py-1">
-              <span class="px-1 text-sm text-gray-600">
-                <%= f.label :email %>
-              </span>
-              <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"text-md block px-3 py-2 rounded-lg w-full hover:bg-gray-200 bg-gray-100 border-2 border-gray-300 placeholder-gray-600 shadow-md focus:placeholder-gray-500 focus:bg-white focus:border-gray-600 focus:outline-none"%>
-            </div>
-              <%= f.submit "Send me reset password instructions" , class:'mt-2 p-2 text-sm bg-green-600 hover:bg-green-700 text-white font-semibold text-center rounded w-full'%>
-          </div>
-        <% end %>
+    <div class="md:mt-6">
+      <div class="text-center font-semibold text-gray-800">
+          Forgot your password?
       </div>
+      <div class="text-center font-base text-gray-800">
+          You can change your password, please send an email for instructions
+      </div>
+      <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+        <div class="mx-auto max-w-lg ">
+          <div class="py-1">
+            <span class="px-1 text-sm text-gray-600">
+              <%= f.label :email %>
+            </span>
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"text-md block px-3 py-2 rounded-lg w-full hover:bg-gray-200 bg-gray-100 border-2 border-gray-300 placeholder-gray-600 shadow-md focus:placeholder-gray-500 focus:bg-white focus:border-gray-600 focus:outline-none"%>
+          </div>
+            <%= f.submit "Send me reset password instructions" , class:'mt-2 p-2 text-sm bg-green-600 hover:bg-green-700 text-white font-semibold text-center rounded w-full'%>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
