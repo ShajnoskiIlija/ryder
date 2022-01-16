@@ -18,7 +18,7 @@ class RentItemsController < ApplicationController
     @rent_items = if params[:rent_type]
                     RentItem.rent_item_per_type(params[:rent_type])
                   else
-                    RentItem.order(created_at: :desc).rent_itemi(params[:current_user])
+                    RentItem.not_my_rentals(params[:current_user]).available_rentals.order(created_at: :desc)
                   end
   end
 end

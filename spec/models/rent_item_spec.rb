@@ -46,14 +46,17 @@ RSpec.describe RentItem, type: :model do
 
   describe 'should include rent_itemi scope' do
     let(:current_user) { create(:user) }
-    let(:available) { create(:rent_item, available: true) }
 
     it "doesn't include current user" do
-      expect((described_class.rent_itemi(current_user))).not_to exist(user_id: current_user)
+      expect((described_class.not_my_rentals(current_user))).not_to exist(user_id: current_user)
     end
+  end
 
-    it 'is available for rent' do
-      expect(described_class.rent_itemi(available)).to exist(available: true)
+  describe 'rent_item should be available' do
+    context 'with status to be available true' do
+      it 'is available for rent' do
+        expect(described_class.available_rentals).to be_truthy
+      end
     end
   end
 end
