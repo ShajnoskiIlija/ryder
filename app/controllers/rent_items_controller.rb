@@ -5,7 +5,7 @@ class RentItemsController < ApplicationController
   include Pagy::Backend
 
   def index
-    @pagy, @rent_items = pagy(RentItem.where.not(user_id: current_user.id).where(available: true))
+    @pagy, @rent_items = pagy(@rent_items)
   end
 
   def show
@@ -18,7 +18,7 @@ class RentItemsController < ApplicationController
     @rent_items = if params[:rent_type]
                     RentItem.rent_item_per_type(params[:rent_type])
                   else
-                    RentItem.last(20)
+                    RentItem.not_my_rentals(current_user).available_rentals.order(created_at: :desc)
                   end
   end
 end

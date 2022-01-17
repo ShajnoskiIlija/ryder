@@ -43,4 +43,20 @@ RSpec.describe RentItem, type: :model do
       expect((described_class.rent_item_per_type('Summer Equipment'))).not_to exist(item_type: rent_type.item_type)
     end
   end
+
+  describe 'should include rent_itemi scope' do
+    let(:current_user) { create(:user) }
+
+    it "doesn't include current user" do
+      expect((described_class.not_my_rentals(current_user))).not_to exist(user_id: current_user)
+    end
+  end
+
+  describe 'rent_item should be available' do
+    context 'with status to be available true' do
+      it 'is available for rent' do
+        expect(described_class.available_rentals).to be_truthy
+      end
+    end
+  end
 end
