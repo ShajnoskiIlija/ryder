@@ -19,7 +19,7 @@ module Dashboard
     def create
       @rent_item = RentItem.new(rent_item_params)
       @rent_item.user_id = current_user.id
-
+      authorize @rent_item
       if @rent_item.save
         redirect_to @rent_item, notice: 'Rent Item has been successfully created!'
       else
@@ -31,6 +31,7 @@ module Dashboard
 
     def update
       if @rent_item.update(rent_item_params)
+        authorize @rent_item
         redirect_to dashboard_rent_items_path, notice: 'Rent Item has been updated!'
       else
         render :edit

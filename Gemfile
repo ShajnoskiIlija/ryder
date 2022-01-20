@@ -76,3 +76,4 @@ gem 'geocoder'
 gem 'rails-i18n'
 
 gem "sidekiq", "~> 6.3"
+gem 'pundit'
