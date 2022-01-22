@@ -1,22 +1,30 @@
 # frozen_string_literal: true
 
 class RentItemPolicy < ApplicationPolicy
-  attr_reader :user, :record
+  class Scope < Scope
+    def resolve
+      user.id? if scope.all
+    end
 
-  def index?
-   @user.id == @record.user_id
+    private
+
+    attr_reader :user, :record
   end
 
-  def new
-    @user.id == @record.user_id
+  def index?
+    user.id?
+  end
+
+  def new?
+    user.id?
   end
 
   def create?
-    @user.id == @record.user_id
+    new?
   end
 
   def edit?
-    @user.id = @record.user_id
+    @user.id == @record.user_id
   end
 
   def update?
@@ -24,6 +32,6 @@ class RentItemPolicy < ApplicationPolicy
   end
 
   def destroy?
-    @user == @record.user
+    @user.id == @record.user_id
   end
 end

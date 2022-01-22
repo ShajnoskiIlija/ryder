@@ -8,14 +8,14 @@ module Dashboard
 
     def index
       @pagy, @rent_items = pagy(current_user.rent_items)
-      authorize @rent_item
+      authorize @rent_items
     end
 
     def show; end
 
     def new
-      authorize @rent_item
       @rent_item = RentItem.new
+      authorize @rent_item
     end
 
     def create
