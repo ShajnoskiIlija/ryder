@@ -4,24 +4,26 @@ class RentItemPolicy < ApplicationPolicy
   attr_reader :user, :record
 
   def index?
-    user_access
+   @user.id == @record.user_id
+  end
+
+  def new
+    @user.id == @record.user_id
   end
 
   def create?
-    user_access
+    @user.id == @record.user_id
+  end
+
+  def edit?
+    @user.id = @record.user_id
   end
 
   def update?
-    user_access
+    edit?
   end
 
   def destroy?
-    user_access
-  end
-
-  private
-
-  def user_access
     @user == @record.user
   end
 end

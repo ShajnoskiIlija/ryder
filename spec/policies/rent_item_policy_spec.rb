@@ -6,10 +6,11 @@ RSpec.describe RentItemPolicy do
   subject { described_class.new(user, rent_item) }
 
   let(:rent_item) { create(:rent_item) }
+  let(:user) { create(:user) }
 
-  context 'when user can access or edit items' do
-    let(:user) { create(:user) }
-
-    it { is_expected.to forbid_actions(%i[create update]) }
+  permissions :update?, :create?, :destroy?, :edit? do
+    it 'denies access if user is not the correct user' do
+      expect(described_class).not_to permit(user)
+    end
   end
 end

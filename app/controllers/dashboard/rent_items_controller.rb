@@ -8,11 +8,13 @@ module Dashboard
 
     def index
       @pagy, @rent_items = pagy(current_user.rent_items)
+      authorize @rent_item
     end
 
     def show; end
 
     def new
+      authorize @rent_item
       @rent_item = RentItem.new
     end
 
@@ -27,7 +29,9 @@ module Dashboard
       end
     end
 
-    def edit; end
+    def edit
+      authorize @rent_item
+    end
 
     def update
       authorize @rent_item
@@ -39,6 +43,7 @@ module Dashboard
     end
 
     def destroy
+      authorize @rent_item
       @rent_item.destroy
 
       redirect_to rent_items_path
