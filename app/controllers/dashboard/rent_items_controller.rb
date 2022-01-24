@@ -29,7 +29,9 @@ module Dashboard
       end
     end
 
-    def edit; end
+    def edit
+      authorize @rent_item
+    end
 
     def update
       authorize @rent_item
