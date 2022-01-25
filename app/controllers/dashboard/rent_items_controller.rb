@@ -16,6 +16,7 @@ module Dashboard
 
     def new
       @rent_item = RentItem.new
+      authorize @rent_item
     end
 
     def create
