@@ -5,6 +5,7 @@ module Dashboard
     include Pagy::Backend
 
     before_action :find_rent_item, only: %i[show edit update]
+    before_action :rent_item_authorization, only: %i[show edit update destroy]
 
     def index
       @pagy, @rent_items = pagy(current_user.rent_items)
@@ -15,7 +16,6 @@ module Dashboard
 
     def new
       @rent_item = RentItem.new
-      authorize @rent_item
     end
 
     def create
@@ -29,9 +29,7 @@ module Dashboard
       end
     end
 
-    def edit
-      authorize @rent_item
-    end
+    def edit; end
 
     def update
       authorize @rent_item
@@ -43,7 +41,6 @@ module Dashboard
     end
 
     def destroy
-      authorize @rent_item
       @rent_item.destroy
 
       redirect_to rent_items_path
@@ -57,6 +54,10 @@ module Dashboard
 
     def find_rent_item
       @rent_item = RentItem.my_rentals(current_user).first
+    end
+
+    def rent_item_authorization
+      authorize @rent_item
     end
   end
 end

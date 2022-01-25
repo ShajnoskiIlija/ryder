@@ -15,6 +15,10 @@ class RentItemPolicy < ApplicationPolicy
     user.id?
   end
 
+  def show?
+    index?
+  end
+
   def new?
     user.id?
   end
