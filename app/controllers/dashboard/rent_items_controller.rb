@@ -32,7 +32,6 @@ module Dashboard
     def edit; end
 
     def update
-      authorize @rent_item
       if @rent_item.update(rent_item_params)
         redirect_to dashboard_rent_items_path, notice: 'Rent Item has been updated!'
       else
