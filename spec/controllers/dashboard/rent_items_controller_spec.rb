@@ -47,8 +47,10 @@ describe Dashboard::RentItemsController, type: :controller do
   end
 
   describe 'GET dashboard/posts/:id/edit' do
+    let(:rent_item) { create(:rent_item, user: user) }
+
     it 'has a 200 status code' do
-      get :edit, params: { id: rent_item }
+      get :edit, params: { id: rent_item.id }
       expect(response).to have_http_status(:success)
     end
   end
