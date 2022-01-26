@@ -32,7 +32,7 @@ describe RentItemsController, type: :controller do
 
     context 'with current user params' do
       it 'rent items' do
-        get :index, params: { user_id: current_user.id }
+        get :index, params: { user_id: current_user }
         expect(assigns(:rent_items)).not_to include(rent_item.user_id)
       end
     end
