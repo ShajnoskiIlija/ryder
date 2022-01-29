@@ -13,7 +13,7 @@ class RentItem < ApplicationRecord
   end
 
   scope :rent_item_per_type, ->(rent_type) { where(item_type: rent_type) }
-  scope :my_rentals, ->(logged_user) { where(user_id: logged_user.id) }
+  scope :my_rentals, ->(logged_user) { where(user_id: logged_user) }
   scope :not_my_rentals, ->(current_user) { where.not(user_id: current_user) }
   scope :available_rentals, -> { where(available: true) }
 end
