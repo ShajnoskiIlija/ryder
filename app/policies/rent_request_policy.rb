@@ -20,6 +20,6 @@ class RentRequestPolicy < ApplicationPolicy
   end
 
   def update?
-    user.id?
+    @user.id? == @record.user_id
   end
 end
