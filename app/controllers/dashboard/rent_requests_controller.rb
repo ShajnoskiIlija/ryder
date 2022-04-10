@@ -8,11 +8,13 @@ module Dashboard
     def index
       current_user_rent_items = current_user.rent_items.pluck(:id)
       @pagy, @rent_requests = pagy(RentRequest.where(rent_item_id: current_user_rent_items).pending)
+      authorize @rent_requests
     end
 
     def create
       @rent_request = RentRequest.new(create_rent_request_params)
       @rent_request.user_id = current_user.id
+      authorize @rent_request
       if @rent_request.save
         redirect_to rent_items_path, notice: 'Succesfully requested a Rent'
       else
@@ -21,6 +23,7 @@ module Dashboard
     end
 
     def update # rubocop:disable Metrics/MethodLength, Metrics/AbcSize
+      authorize @rent_request
       if @rent_request.update(update_rent_request_params)
         if @rent_request.accepted?
           @rent_request.rent_item.update(available: false)

@@ -16,7 +16,7 @@ class RentItemsController < ApplicationController
 
   def scope_rent_items
     @rent_items = if params[:rent_type]
-                    RentItem.not_my_rentals(current_user).rent_item_per_type(params[:rent_type])
+                    RentItem.not_my_rentals(current_user).available_rentals.rent_item_per_type(params[:rent_type])
                   else
                     RentItem.not_my_rentals(current_user).available_rentals.order(created_at: :desc)
                   end
