@@ -19,7 +19,7 @@ Ryder is a rental and sharing application that helps people to connect owners wi
 
 * Deployment instructions
 -Clone the repository
--Make sure you have the suitable versions as stated aboce
+-Make sure you have the suitable versions as stated above
 -Run the following commands:
 
     bundle
